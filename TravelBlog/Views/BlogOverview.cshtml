@@ -2,11 +2,15 @@
 @{
     Layout = "Master.cshtml";
 }
+
+
+
+
 <div role="contentinfo">
     <section class="light blogarchive equalizer">
         <div class="container">
             <div class="row">
-                @foreach (var post in CurrentPage.Children)
+                @foreach (var post in CurrentPage.Children.OrderBy("CreateDate desc"))
                 {
                     <div class="col-sm-6">
                         <div class="content equal">

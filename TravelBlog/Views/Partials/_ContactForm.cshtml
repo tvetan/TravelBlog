@@ -1,0 +1,25 @@
+﻿@inherits UmbracoViewPage<TravelBlog.Models.ContactRequestModel>
+@using TravelBlog.Controllers;
+
+@{
+    Layout = null;
+}
+
+@using (Html.BeginUmbracoForm<ContactFormController>("Submit", null,
+                                new { @class = "add-comment" }, FormMethod.Post))
+{
+    <div>
+        @Html.TextBoxFor(m => m.Name)
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.Email)
+    </div>
+    <div>
+        @Html.TextBoxFor(m => m.Subject)
+    </div>
+    <div>
+        @Html.TextAreaFor(m => m.Message)
+    </div>
+
+    <input type="submit" name="Submit" value="Submit" />
+}
