@@ -3,35 +3,61 @@
 @if (home.Children.Any())
 {
     @* Get the first page in the children *@
-    var naviLevel = home.Children.First().Level;
+var naviLevel = home.Children.First().Level;
 
     @* Add in level for a CSS hook *@
-    <ul class="level-@naviLevel">
-        @* For each child page under the home node *@
-        @foreach (var childPage in home.Children)
-        {
-            if (childPage.Children.Any())
-            {
-                <li class="has-child @(childPage.IsAncestorOrSelf(CurrentPage) ? "selected" : null)">
-                    @if (childPage.DocumentTypeAlias == "LandingPage")
+
+    <div class="site-navigation-inner col-sm-12">
+        <div class="navbar-header">
+            <button type="button" class="btn navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul id="menu-all-pages" class="nav navbar-nav">
+                <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home">
+                    <a title="Home" href="/">Home</a>
+                </li>
+                @foreach (var childPage in home.Children)
+                {
+                    if (childPage.Children.Any())
                     {
-                        <span>@childPage.Name</span>
-                        @childPages(childPage.Children)
+
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown @(childPage.IsAncestorOrSelf(CurrentPage) ? "active" : null)">
+                            @if (childPage.DocumentTypeAlias == "LandingPage")
+                            {
+                                <a title="About The Tests" href="@childPage.Url" data-toggle="dropdown" class="dropdown-toggle">@childPage.Name </a>
+                                @childPages(childPage.Children)
+                            }
+                            else
+                            {
+                                <a href="@childPage.Url">@childPage.Name</a>
+                            }
+                        </li>
                     }
                     else
                     {
-                        <a href="@childPage.Url">@childPage.Name</a>}
-                </li>
-            }
-            else
-            {
-                <li class="@(childPage.IsAncestorOrSelf(CurrentPage) ? "selected" : null)">
-                    <a href="@childPage.Url">@childPage.Name</a>
-                </li>
-            }
-        }
-    </ul>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page @(childPage.IsAncestorOrSelf(CurrentPage) ? "active" : null)">
+                            <a href="@childPage.Url">@childPage.Name</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="nav-search">
+            <form action="https://colorlib.com/activello/" method="get">
+                <input type="text" name="s" value="" placeholder="Search">
+                <button type="submit" class="header-search-icon" name="submit" id="searchsubmit" value="Search">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
 }
+
 @helper childPages(dynamic pages)
 {
     @* Ensure that we have a collection of pages *@
@@ -41,10 +67,10 @@ if (pages.Any())
 var naviLevel = pages.First().Level;
 
     @* Add in level for a CSS hook *@
-    <ul class="sublevel level-@(naviLevel)">
+    <ul class="dropdown-menu" role="menu">
         @foreach (var page in pages)
         {
-            <li>
+            <li class="menu-item menu-item-type-post_type menu-item-object-page">
                 <a href="@page.Url">@page.Name</a>
 
                 @* if the current page has any children *@
