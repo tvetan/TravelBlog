@@ -1,6 +1,14 @@
-﻿@inherits UmbracoTemplatePage
+﻿@using TravelBlog.ViewModels;
+@using Umbraco.Web.Mvc;
+
+@inherits UmbracoViewPage<HomeModel>
 @{
     Layout = "Master.cshtml";
 }
 
-@*@CurrentPage.GetGridHtml("content", "fanoe")*@
+
+@Model.MainTitle
+
+@Model.MainSubTitle
+
+@*@CurrentPage.GetGridHtml("content", "bootstrap3")*@
