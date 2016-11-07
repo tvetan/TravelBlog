@@ -11,10 +11,10 @@ namespace TravelBlog.Controllers
 {
     public class HomeController : RenderMvcController
     {
-        public ActionResult Index(IRenderModel model)
+        public ActionResult Home(RenderModel model)
         {
             var blogOverviewModel = new HomeModel(model.Content);
-            blogOverviewModel.MainTitle = "some title";
+            //blogOverviewModel.MainTitle = "some title";
             blogOverviewModel.MainSubTitle = "sub title";
 
             return CurrentTemplate(blogOverviewModel);
