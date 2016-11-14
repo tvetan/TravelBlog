@@ -1,0 +1,19 @@
+﻿@if (TempData["Success"] != null)
+{
+    <div class="notification-success">
+        <p>
+            @Html.Raw(TempData["Success"])
+        </p>
+        <a class="close" href="#"></a>
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="notification-error">
+        <p>
+            @Html.Raw(TempData["Error"])
+        </p>
+        <a class="close" href="#"></a>
+    </div>
+}

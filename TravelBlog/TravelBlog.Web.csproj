@@ -2983,6 +2983,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Contact.cshtml" />
+    <Content Include="Views\Partials\_Head.cshtml" />
+    <Content Include="Views\Partials\_Messages.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3043,6 +3045,10 @@
     <ProjectReference Include="..\TravelBlog.Models\TravelBlog.Models.csproj">
       <Project>{40a3084b-b681-46a8-bcb2-e888e2b08747}</Project>
       <Name>TravelBlog.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TravelBlog.Utils\TravelBlog.Utils.csproj">
+      <Project>{ea45d67f-73da-4249-948f-10e246db677c}</Project>
+      <Name>TravelBlog.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

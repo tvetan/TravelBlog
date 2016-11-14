@@ -1,49 +1,43 @@
-@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@inherits UmbracoTemplatePage
 @{
-    var home = CurrentPage.Site();
+    var homePageModel = Model.Content.AncestorOrSelf(1);
+
+    var facebookLink = homePageModel.GetPropertyValue(HomeDocumentTypeConsts.FacebookLink);
+    var twitterLink = homePageModel.GetPropertyValue(HomeDocumentTypeConsts.TwitterLink);
+    var pinterestLink = homePageModel.GetPropertyValue(HomeDocumentTypeConsts.PinterestLink);
+    var youtubeLink = homePageModel.GetPropertyValue(HomeDocumentTypeConsts.YoutubeLink);
+    var instagramLink = homePageModel.GetPropertyValue(HomeDocumentTypeConsts.InstagramLink);
+
+    var footerLinks = homePageModel.Children.Where(x => x.GetPropertyValue<bool>("showInFooterNavigation"));
 }
 
-@if (home.Children.Where("Visible").Any())
-{
-    @* For each child page under the home node, where the property umbracoNaviHide is not True *@
-foreach (var childPage in home.Children.Where("Visible"))
-{
-    <div class="col-xs-6 col-sm-3">
-        @if (childPage.Children.Where("Visible").Any())
-        {
-            <strong>@childPage.Name</strong>
-            @childPages(childPage.Children)
-        }
-    </div>
-    }
-}
+<div id="footer-area">
+    <footer id="colophon" class="site-footer" role="contentinfo">
+        <div class="site-info container">
+            <div class="row">
+                <div class="col-md-6">
+                    @foreach (var childPage in footerLinks)
+                    {
+                        <a href="@childPage.Url">@childPage.Name</a>
+                    }
 
-<div class="col-xs-6 col-sm-3">
-    <strong>Find us</strong>
-    <ul>
-        <li>
-            <a href="https://twitter.com/umbracoproject" target="_blank">Twitter</a>
-        </li>
-        <li>
-            <a href="https://www.facebook.com/Umbraco" target="_blank">Facebook</a>
-        </li>
-        <li>
-            <a href="http://umbraco.com/?utm_source=core&utm_medium=starterkit&utm_content=topic-link&utm_campaign=fanoe" target="_blank">Umbraco.com</a>
-        </li>
-    </ul>
+                </div>
+                <nav id="social" class="col-md-6 social-icons">
+                    <ul id="menu-social-items" class="social-menu">
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1734"><a href="@facebookLink"><i class="social_icon fa"><span>Facebook</span></i></a></li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1735"><a href="@twitterLink"><i class="social_icon fa"><span>Twitter</span></i></a></li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1736"><a href="@youtubeLink"><i class="social_icon fa"><span>youtube</span></i></a></li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1738"><a href="@instagramLink"><i class="social_icon fa"><span>Instagram</span></i></a></li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1738"><a href="@pinterestLink"><i class="social_icon fa"><span>Pinterest</span></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row">
+                <div class="copyright col-md-12">
+                    © @DateTime.Now.Year Travel Addiction. All rights reserved.
+                </div>
+            </div>
+        </div><!-- .site-info -->
+        <div class="scroll-to-top" style="display: block;"><i class="fa fa-angle-up"></i></div><!-- .scroll-to-top -->
+    </footer><!-- #colophon -->
 </div>
-@helper childPages(dynamic pages)
-{
-    @* Ensure that we have a collection of pages *@
-if (pages.Any())
-{
-    <ul>
-        @foreach (var page in pages.Where("Visible"))
-        {
-            <li>
-                <a href="@page.Url">@page.Name</a>
-            </li>
-        }
-    </ul>
-}
-}

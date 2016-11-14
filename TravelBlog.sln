@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelBlog.Data", "TravelBl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelBlog.Models", "TravelBlog.Models\TravelBlog.Models.csproj", "{40A3084B-B681-46A8-BCB2-E888E2B08747}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelBlog.Utils", "TravelBlog.Utils\TravelBlog.Utils.csproj", "{EA45D67F-73DA-4249-948F-10E246DB677C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{40A3084B-B681-46A8-BCB2-E888E2B08747}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40A3084B-B681-46A8-BCB2-E888E2B08747}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40A3084B-B681-46A8-BCB2-E888E2B08747}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA45D67F-73DA-4249-948F-10E246DB677C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA45D67F-73DA-4249-948F-10E246DB677C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA45D67F-73DA-4249-948F-10E246DB677C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA45D67F-73DA-4249-948F-10E246DB677C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

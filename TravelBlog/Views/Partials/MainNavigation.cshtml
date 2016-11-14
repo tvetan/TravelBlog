@@ -1,10 +1,13 @@
 @inherits UmbracoTemplatePage
-@{ var home = CurrentPage.Site(); }
-@if (home.Children.Any())
-{
-    @* Get the first page in the children *@
-var naviLevel = home.Children.First().Level;
+@{ 
+    var home = Model.Content.AncestorOrSelf(1);
+    var children = home.Children.Where(x => x.GetPropertyValue<bool>("showInMainNavigation"));
 
+    
+}
+@if (children.Any())
+{
+    @* Get the first page in the children *
     @* Add in level for a CSS hook *@
 
     <div class="site-navigation-inner col-sm-12">
@@ -21,12 +24,12 @@ var naviLevel = home.Children.First().Level;
                 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home">
                     <a title="Home" href="/">Home</a>
                 </li>
-                @foreach (var childPage in home.Children)
+                @foreach (var childPage in children)
                 {
                     if (childPage.Children.Any())
                     {
 
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown @(childPage.IsAncestorOrSelf(CurrentPage) ? "active" : null)">
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children dropdown @(childPage.IsAncestorOrSelf((IPublishedContent)CurrentPage) ? "active" : null)">
                             @if (childPage.DocumentTypeAlias == "LandingPage")
                             {
                                 <a title="About The Tests" href="@childPage.Url" data-toggle="dropdown" class="dropdown-toggle">@childPage.Name </a>
@@ -40,7 +43,7 @@ var naviLevel = home.Children.First().Level;
                     }
                     else
                     {
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page @(childPage.IsAncestorOrSelf(CurrentPage) ? "active" : null)">
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page @(childPage.IsAncestorOrSelf((IPublishedContent)CurrentPage) ? "active" : null)">
                             <a href="@childPage.Url">@childPage.Name</a>
                         </li>
                     }
@@ -64,7 +67,6 @@ var naviLevel = home.Children.First().Level;
 if (pages.Any())
 {
     @* Get the first page in pages and get the level *@
-var naviLevel = pages.First().Level;
 
     @* Add in level for a CSS hook *@
     <ul class="dropdown-menu" role="menu">
