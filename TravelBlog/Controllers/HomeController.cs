@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TravelBlog.ViewModels;
+using TravelBlog.Data;
 using Umbraco.Web.Models;
 using Umbraco.Web.Mvc;
 
@@ -11,13 +11,18 @@ namespace TravelBlog.Controllers
 {
     public class HomeController : RenderMvcController
     {
+        private HomeService homeService;
+
+        public HomeController()
+        {
+            this.homeService = new HomeService();
+        }
+
         public ActionResult Home(RenderModel model)
         {
-            var blogOverviewModel = new HomeModel(model.Content);
-            //blogOverviewModel.MainTitle = "some title";
-            blogOverviewModel.MainSubTitle = "sub title";
+            var homeModel = homeService.GetModel(model.Content);
 
-            return CurrentTemplate(blogOverviewModel);
+            return CurrentTemplate(homeModel);
         }
     }
 }

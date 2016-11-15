@@ -3,6 +3,12 @@
 @{
     Layout = "Master.cshtml";
 }
-@{
-    Html.RenderPartial("~/Views/Partials/_ContactForm.cshtml", new TravelBlog.Models.ContactRequestModel());
-}
+
+<div class="container main-content-area">
+    <div class="row">
+        @{
+            Html.RenderPartial("~/Views/Partials/_ContactForm.cshtml", new TravelBlog.Models.ContactRequestModel());
+        }
+
+    </div>
+</div>

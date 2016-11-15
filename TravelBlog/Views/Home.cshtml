@@ -1,11 +1,8 @@
-﻿@using TravelBlog.ViewModels;
-@using Umbraco.Web.Mvc;
-
+﻿@using Umbraco.Web.Mvc;
 @inherits UmbracoViewPage<HomeModel>
 @{
     Layout = "Master.cshtml";
 }
-
 <div class="top-section">
     <div class="flexslider" style="height: 396px;">
         <ul class="slides">
@@ -59,217 +56,43 @@
 
                     <div class="article-container">
 
+                        @foreach (var post in Model.AllBlogPosts)
+                        {
+                            <article id="post-555" class="post-555 post type-post status-publish format-gallery has-post-thumbnail hentry category-post-formats tag-gallery tag-post-formats tag-shortcode post_format-post-format-gallery">
+                                <div class="blog-item-wrap">
+                                    <div class="post-inner-content">
+                                        <header class="entry-header page-header">
+                                            <li class="cat-item cat-item-38">
+                                                <a href="https://colorlib.com/activello/category/post-formats/" title="Posts in this category test post formats.">Post Formats</a>
+                                            </li>
+                                            <h2 class="entry-title"><a href="https://colorlib.com/activello/post-format-gallery/" rel="bookmark">@post.Title</a></h2>
+
+                                            <div class="entry-meta">
+                                                <span class="posted-on">Posted on <a href="https://colorlib.com/activello/post-format-gallery/" rel="bookmark"><time class="entry-date published" datetime="2015-11-12T07:24:14+00:00">@post.CreateDate.ToString("MMMM dd, yyyy")</time><time class="updated" datetime="2015-11-12T14:25:27+00:00">@post.CreateDate.ToString("MM dd, yyyy")</time></a></span>
+
+                                            </div><!-- .entry-meta -->
+                                        </header><!-- .entry-header -->
+
+                                        @if (!string.IsNullOrEmpty(post.MainImageUrl))
+                                        {
+                                            <a href="@post.Url" title="@post.Title">
+                                                <img width="1170" height="550" src="@post.MainImageUrl" class="single-featured wp-post-image" alt="photo-1429734160945-4f85244d6a5a" scale="0">
+                                            </a>
+                                        }
+                                        <div class="entry-content">
+
+                                            <p>@post.Summary</p>
 
 
-                        <article id="post-555" class="post-555 post type-post status-publish format-gallery has-post-thumbnail hentry category-post-formats tag-gallery tag-post-formats tag-shortcode post_format-post-format-gallery">
-                            <div class="blog-item-wrap">
-                                <div class="post-inner-content">
-                                    <header class="entry-header page-header">
-                                        <li class="cat-item cat-item-38">
-                                            <a href="https://colorlib.com/activello/category/post-formats/" title="Posts in this category test post formats.">Post Formats</a>
-                                        </li>
-                                        <h2 class="entry-title"><a href="https://colorlib.com/activello/post-format-gallery/" rel="bookmark">Post Format: Gallery</a></h2>
+                                            <div class="read-more">
+                                                <a href="@post.Url" title="Post Format: Gallery">Read More</a>
+                                            </div>
 
-                                        <div class="entry-meta">
-                                            <span class="posted-on">Posted on <a href="https://colorlib.com/activello/post-format-gallery/" rel="bookmark"><time class="entry-date published" datetime="2015-11-12T07:24:14+00:00">November 12, 2015</time><time class="updated" datetime="2015-11-12T14:25:27+00:00">November 12, 2015</time></a></span>
-
-                                        </div><!-- .entry-meta -->
-                                    </header><!-- .entry-header -->
-
-                                    <a href="https://colorlib.com/activello/post-format-gallery/" title="Post Format: Gallery">
-                                        <img width="1170" height="550" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-1170x550.jpg" class="single-featured wp-post-image" alt="photo-1429734160945-4f85244d6a5a" scale="0">
-                                    </a>
-
-                                    <div class="entry-content">
-
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt, sapien nec aliquam viverra, libero elit euismod turpis, vel sollicitudin nisi eros eget tortor.</p>
-
-
-                                        <div class="read-more">
-                                            <a href="https://colorlib.com/activello/post-format-gallery/" title="Post Format: Gallery">Read More</a>
-                                        </div>
-
-                                    </div><!-- .entry-content -->
+                                        </div><!-- .entry-content -->
+                                    </div>
                                 </div>
-                            </div>
-                        </article><!-- #post-## -->
-
-
-
-                        <article id="post-1016" class="post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-                            <div class="blog-item-wrap">
-                                <div class="post-inner-content">
-                                    <header class="entry-header page-header">
-                                        <li class="cat-item cat-item-49">
-                                            <a href="https://colorlib.com/activello/category/template-2/" title="Posts with template-related tests">Template</a>
-                                        </li>
-                                        <h2 class="entry-title"><a href="https://colorlib.com/activello/template-featured-image-vertical/" rel="bookmark">Template: Featured Image (No Sidebar Layout)</a></h2>
-
-                                        <div class="entry-meta">
-                                            <span class="posted-on">Posted on <a href="https://colorlib.com/activello/template-featured-image-vertical/" rel="bookmark"><time class="entry-date published" datetime="2015-11-11T15:36:32+00:00">November 11, 2015</time><time class="updated" datetime="2015-11-14T18:03:58+00:00">November 14, 2015</time></a></span>
-
-                                        </div><!-- .entry-meta -->
-                                    </header><!-- .entry-header -->
-
-                                    <a href="https://colorlib.com/activello/template-featured-image-vertical/" title="Template: Featured Image (No Sidebar Layout)">
-                                        <img width="1170" height="550" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-1170x550.jpg" class="single-featured wp-post-image" alt="photo-1437915015400-137312b61975" scale="0">
-                                    </a>
-
-                                    <div class="entry-content">
-
-                                        <p>This post should display a&nbsp;featured image, if the theme&nbsp;supports it. Non-square images can provide some unique styling issues. This post tests a vertical featured image.</p>
-
-
-                                        <div class="read-more">
-                                            <a href="https://colorlib.com/activello/template-featured-image-vertical/" title="Template: Featured Image (No Sidebar Layout)">Read More</a>
-                                        </div>
-
-                                    </div><!-- .entry-content -->
-                                </div>
-                            </div>
-                        </article><!-- #post-## -->
-
-
-
-                        <article id="post-1011" class="post-1011 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-                            <div class="blog-item-wrap">
-                                <div class="post-inner-content">
-                                    <header class="entry-header page-header">
-                                        <li class="cat-item cat-item-49">
-                                            <a href="https://colorlib.com/activello/category/template-2/" title="Posts with template-related tests">Template</a>
-                                        </li>
-                                        <h2 class="entry-title"><a href="https://colorlib.com/activello/template-featured-image-horizontal/" rel="bookmark">Template: Featured Image (Full Width No Sidebar Layout)</a></h2>
-
-                                        <div class="entry-meta">
-                                            <span class="posted-on">Posted on <a href="https://colorlib.com/activello/template-featured-image-horizontal/" rel="bookmark"><time class="entry-date published" datetime="2015-11-01T15:15:12+00:00">November 1, 2015</time><time class="updated" datetime="2015-11-17T09:08:44+00:00">November 17, 2015</time></a></span>
-
-                                        </div><!-- .entry-meta -->
-                                    </header><!-- .entry-header -->
-
-                                    <a href="https://colorlib.com/activello/template-featured-image-horizontal/" title="Template: Featured Image (Full Width No Sidebar Layout)">
-                                        <img width="1170" height="550" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1431578500526-4d9613015464-1170x550.jpg" class="single-featured wp-post-image" alt="photo-1431578500526-4d9613015464" scale="0">
-                                    </a>
-
-                                    <div class="entry-content">
-
-                                        <p>This post should display a featured image, if the theme supports it. Non-square images can provide some unique styling issues.</p>
-
-
-                                        <div class="read-more">
-                                            <a href="https://colorlib.com/activello/template-featured-image-horizontal/" title="Template: Featured Image (Full Width No Sidebar Layout)">Read More</a>
-                                        </div>
-
-                                    </div><!-- .entry-content -->
-                                </div>
-                            </div>
-                        </article><!-- #post-## -->
-
-
-
-                        <article id="post-996" class="post-996 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 tag-content-2 tag-read-more tag-template">
-                            <div class="blog-item-wrap">
-                                <div class="post-inner-content">
-                                    <header class="entry-header page-header">
-                                        <li class="cat-item cat-item-49">
-                                            <a href="https://colorlib.com/activello/category/template-2/" title="Posts with template-related tests">Template</a>
-                                        </li>
-                                        <h2 class="entry-title"><a href="https://colorlib.com/activello/template-more-tag/" rel="bookmark">Template: More Tag</a></h2>
-
-                                        <div class="entry-meta">
-                                            <span class="posted-on">Posted on <a href="https://colorlib.com/activello/template-more-tag/" rel="bookmark"><time class="entry-date published" datetime="2015-11-01T14:41:11+00:00">November 1, 2015</time><time class="updated" datetime="2015-11-12T14:08:50+00:00">November 12, 2015</time></a></span>
-
-                                        </div><!-- .entry-meta -->
-                                    </header><!-- .entry-header -->
-
-                                    <a href="https://colorlib.com/activello/template-more-tag/" title="Template: More Tag">
-                                        <img width="1170" height="550" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/oIpwxeeSPy1cnwYpqJ1w_Dufer-Collateral-test-1170x550.jpg" class="single-featured wp-post-image" alt="oIpwxeeSPy1cnwYpqJ1w_Dufer-Collateral-test" scale="0">
-                                    </a>
-
-                                    <div class="entry-content">
-
-                                        <p>This content is before the more tag. Right after this&nbsp;sentence&nbsp;should be a “continue reading” button of some sort.</p>
-
-
-                                        <div class="read-more">
-                                            <a href="https://colorlib.com/activello/template-more-tag/" title="Template: More Tag">Read More</a>
-                                        </div>
-
-                                    </div><!-- .entry-content -->
-                                </div>
-                            </div>
-                        </article><!-- #post-## -->
-
-
-
-                        <article id="post-993" class="post-993 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 tag-content-2 tag-excerpt-2 tag-template">
-                            <div class="blog-item-wrap">
-                                <div class="post-inner-content">
-                                    <header class="entry-header page-header">
-                                        <li class="cat-item cat-item-49">
-                                            <a href="https://colorlib.com/activello/category/template-2/" title="Posts with template-related tests">Template</a>
-                                        </li>
-                                        <h2 class="entry-title"><a href="https://colorlib.com/activello/template-excerpt-defined/" rel="bookmark">Template: Excerpt (Defined)</a></h2>
-
-                                        <div class="entry-meta">
-                                            <span class="posted-on">Posted on <a href="https://colorlib.com/activello/template-excerpt-defined/" rel="bookmark"><time class="entry-date published" datetime="2015-10-15T14:38:08+00:00">October 15, 2015</time><time class="updated" datetime="2015-11-12T14:00:02+00:00">November 12, 2015</time></a></span>
-
-                                        </div><!-- .entry-meta -->
-                                    </header><!-- .entry-header -->
-
-                                    <a href="https://colorlib.com/activello/template-excerpt-defined/" title="Template: Excerpt (Defined)">
-                                        <img width="1170" height="550" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/16386149745_f56818fbd4_o-1170x550.jpg" class="single-featured wp-post-image" alt="16386149745_f56818fbd4_o" scale="0">
-                                    </a>
-
-                                    <div class="entry-content">
-
-                                        <p>This is a user-defined post excerpt. It should be displayed in place of the post content in archive-index pages.</p>
-
-
-                                        <div class="read-more">
-                                            <a href="https://colorlib.com/activello/template-excerpt-defined/" title="Template: Excerpt (Defined)">Read More</a>
-                                        </div>
-
-                                    </div><!-- .entry-content -->
-                                </div>
-                            </div>
-                        </article><!-- #post-## -->
-
-
-
-                        <article id="post-358" class="post-358 post type-post status-publish format-standard has-post-thumbnail hentry category-post-formats tag-post-formats tag-readability tag-standard-2">
-                            <div class="blog-item-wrap">
-                                <div class="post-inner-content">
-                                    <header class="entry-header page-header">
-                                        <li class="cat-item cat-item-38">
-                                            <a href="https://colorlib.com/activello/category/post-formats/" title="Posts in this category test post formats.">Post Formats</a>
-                                        </li>
-                                        <h2 class="entry-title"><a href="https://colorlib.com/activello/post-format-standard/" rel="bookmark">Post Format: Standard</a></h2>
-
-                                        <div class="entry-meta">
-                                            <span class="posted-on">Posted on <a href="https://colorlib.com/activello/post-format-standard/" rel="bookmark"><time class="entry-date published" datetime="2015-10-05T00:27:25+00:00">October 5, 2015</time><time class="updated" datetime="2015-11-12T14:03:43+00:00">November 12, 2015</time></a></span>
-
-                                        </div><!-- .entry-meta -->
-                                    </header><!-- .entry-header -->
-
-                                    <a href="https://colorlib.com/activello/post-format-standard/" title="Post Format: Standard">
-                                        <img width="1170" height="550" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1438109491414-7198515b166b-1170x550.jpg" class="single-featured wp-post-image" alt="photo-1438109491414-7198515b166b" scale="0">
-                                    </a>
-
-                                    <div class="entry-content">
-
-                                        <p>All children, except one, grow up. They soon know that they will grow up, and the way Wendy knew was this. </p>
-
-
-                                        <div class="read-more">
-                                            <a href="https://colorlib.com/activello/post-format-standard/" title="Post Format: Standard">Read More</a>
-                                        </div>
-
-                                    </div><!-- .entry-content -->
-                                </div>
-                            </div>
-                        </article><!-- #post-## -->
-
-
+                            </article><!-- #post-## -->
+                        }
                     </div>
 
                     <nav class="navigation paging-navigation" role="navigation">

@@ -19,8 +19,8 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "1b6ccabcbe637761")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "bba4671792405f2")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 namespace Umbraco.Web.PublishedContentModels
 {
@@ -59,21 +59,21 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Introduction
+		/// Main Image
 		///</summary>
-		[ImplementPropertyType("introduction")]
-		public string Introduction
+		[ImplementPropertyType("mainImage")]
+		public string MainImage
 		{
-			get { return this.GetPropertyValue<string>("introduction"); }
+			get { return this.GetPropertyValue<string>("mainImage"); }
 		}
 
 		///<summary>
-		/// Pesho
+		/// Summary
 		///</summary>
-		[ImplementPropertyType("pesho")]
-		public string Pesho
+		[ImplementPropertyType("summary")]
+		public string Summary
 		{
-			get { return this.GetPropertyValue<string>("pesho"); }
+			get { return this.GetPropertyValue<string>("summary"); }
 		}
 	}
 
@@ -135,6 +135,33 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Home, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// About Me Image
+		///</summary>
+		[ImplementPropertyType("aboutMeImage")]
+		public string AboutMeImage
+		{
+			get { return this.GetPropertyValue<string>("aboutMeImage"); }
+		}
+
+		///<summary>
+		/// About Me Text
+		///</summary>
+		[ImplementPropertyType("aboutMeText")]
+		public IHtmlString AboutMeText
+		{
+			get { return this.GetPropertyValue<IHtmlString>("aboutMeText"); }
+		}
+
+		///<summary>
+		/// About Me Title
+		///</summary>
+		[ImplementPropertyType("aboutMeTitle")]
+		public string AboutMeTitle
+		{
+			get { return this.GetPropertyValue<string>("aboutMeTitle"); }
 		}
 
 		///<summary>

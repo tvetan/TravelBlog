@@ -1,0 +1,151 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+}
+
+ 
+<div class="container main-content-area">
+
+    <div class="row">
+        <div class="main-content-inner col-sm-12 col-md-8 side-right">
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main" role="main">
+                    <div class="post-inner-content">
+
+                        <section class="error-404 not-found">
+                            <header class="page-header">
+                                <h1 class="page-title">Oops! That page can’t be found.</h1>
+                            </header><!-- .page-header -->
+
+                            <div class="page-content">
+                                <p>It looks like nothing was found at this location. Maybe try one of the links below or a search?</p>
+
+
+                                <form role="search" method="get" class="form-search" action="https://colorlib.com/activello/">
+                                    <div class="input-group">
+                                        <label class="screen-reader-text" for="s">Search for:</label>
+                                        <input type="text" class="form-control search-query" placeholder="Search…" value="" name="s" title="Search for:">
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-default" name="submit" id="searchsubmit" value="Search">Search</button>
+                                        </span>
+                                    </div>
+                                </form>
+                                <div class="row">
+                                    <div class="col-md-6 not-found-widget">
+                                        <div class="widget widget_recent_entries">
+                                            <h2 class="widgettitle">Recent Posts</h2>		<ul>
+                                                <li>
+                                                    <a href="https://colorlib.com/activello/post-format-gallery/">Post Format: Gallery</a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://colorlib.com/activello/template-featured-image-vertical/">Template: Featured Image (No Sidebar Layout)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://colorlib.com/activello/template-featured-image-horizontal/">Template: Featured Image (Full Width No Sidebar Layout)</a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://colorlib.com/activello/template-more-tag/">Template: More Tag</a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://colorlib.com/activello/template-excerpt-defined/">Template: Excerpt (Defined)</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 not-found-widget">
+                                        <div class="widget widget_categories">
+                                            <h2 class="widgettitle">Most Used Categories</h2>
+                                            <ul>
+                                                <li class="cat-item cat-item-38">
+                                                    <a href="https://colorlib.com/activello/category/post-formats/" title="Posts in this category test post formats.">Post Formats</a> (11)
+                                                </li>
+                                                <li class="cat-item cat-item-49">
+                                                    <a href="https://colorlib.com/activello/category/template-2/" title="Posts with template-related tests">Template</a> (5)
+                                                </li>
+                                                <li class="cat-item cat-item-9">
+                                                    <a href="https://colorlib.com/activello/category/cat-a/">Cat A</a> (3)
+                                                </li>
+                                                <li class="cat-item cat-item-19">
+                                                    <a href="https://colorlib.com/activello/category/edge-case-2/" title="Posts that have edge-case related tests">Edge Case</a> (3)
+                                                </li>
+                                                <li class="cat-item cat-item-10">
+                                                    <a href="https://colorlib.com/activello/category/cat-b/">Cat B</a> (2)
+                                                </li>
+                                            </ul>
+                                        </div><!-- .widget -->
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 not-found-widget">
+                                        <div class="widget widget_archive">
+                                            <h2 class="widgettitle">Archives</h2><p>Try looking in the monthly archives. </p>		<label class="screen-reader-text" for="archives-dropdown--1">Archives</label>
+                                            <select id="archives-dropdown--1" name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
+
+                                                <option value="">Select Month</option>
+                                                <option value="https://colorlib.com/activello/2015/11/"> November 2015 </option>
+                                                <option value="https://colorlib.com/activello/2015/10/"> October 2015 </option>
+                                                <option value="https://colorlib.com/activello/2015/08/"> August 2015 </option>
+                                                <option value="https://colorlib.com/activello/2015/06/"> June 2015 </option>
+                                                <option value="https://colorlib.com/activello/2015/05/"> May 2015 </option>
+                                                <option value="https://colorlib.com/activello/2015/04/"> April 2015 </option>
+                                                <option value="https://colorlib.com/activello/2015/03/"> March 2015 </option>
+                                                <option value="https://colorlib.com/activello/2015/02/"> February 2015 </option>
+                                                <option value="https://colorlib.com/activello/2015/01/"> January 2015 </option>
+                                                <option value="https://colorlib.com/activello/2010/11/"> November 2010 </option>
+                                                <option value="https://colorlib.com/activello/2010/07/"> July 2010 </option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 not-found-widget">
+                                        <div class="widget widget_tag_cloud">
+                                            <h2 class="widgettitle">Tags</h2><div class="tagcloud">
+                                                <a href="https://colorlib.com/activello/tag/aside/" class="tag-link-69 tag-link-position-1" title="1 topic" style="font-size: 8pt;">aside</a>
+                                                <a href="https://colorlib.com/activello/tag/audio/" class="tag-link-70 tag-link-position-2" title="1 topic" style="font-size: 8pt;">audio</a>
+                                                <a href="https://colorlib.com/activello/tag/chat/" class="tag-link-73 tag-link-position-3" title="1 topic" style="font-size: 8pt;">chat</a>
+                                                <a href="https://colorlib.com/activello/tag/codex/" class="tag-link-77 tag-link-position-4" title="2 topics" style="font-size: 11.111111111111pt;">Codex</a>
+                                                <a href="https://colorlib.com/activello/tag/comments-2/" class="tag-link-78 tag-link-position-5" title="1 topic" style="font-size: 8pt;">comments</a>
+                                                <a href="https://colorlib.com/activello/tag/content-2/" class="tag-link-79 tag-link-position-6" title="3 topics" style="font-size: 13.185185185185pt;">content</a>
+                                                <a href="https://colorlib.com/activello/tag/css/" class="tag-link-81 tag-link-position-7" title="1 topic" style="font-size: 8pt;">css</a>
+                                                <a href="https://colorlib.com/activello/tag/edge-case/" class="tag-link-86 tag-link-position-8" title="3 topics" style="font-size: 13.185185185185pt;">edge case</a>
+                                                <a href="https://colorlib.com/activello/tag/embeds-2/" class="tag-link-87 tag-link-position-9" title="2 topics" style="font-size: 11.111111111111pt;">embeds</a>
+                                                <a href="https://colorlib.com/activello/tag/excerpt-2/" class="tag-link-91 tag-link-position-10" title="1 topic" style="font-size: 8pt;">excerpt</a>
+                                                <a href="https://colorlib.com/activello/tag/featured-image/" class="tag-link-93 tag-link-position-11" title="2 topics" style="font-size: 11.111111111111pt;">featured image</a>
+                                                <a href="https://colorlib.com/activello/tag/gallery/" class="tag-link-99 tag-link-position-12" title="2 topics" style="font-size: 11.111111111111pt;">gallery</a>
+                                                <a href="https://colorlib.com/activello/tag/image/" class="tag-link-106 tag-link-position-13" title="3 topics" style="font-size: 13.185185185185pt;">image</a>
+                                                <a href="https://colorlib.com/activello/tag/jetpack-2/" class="tag-link-109 tag-link-position-14" title="2 topics" style="font-size: 11.111111111111pt;">jetpack</a>
+                                                <a href="https://colorlib.com/activello/tag/link/" class="tag-link-112 tag-link-position-15" title="1 topic" style="font-size: 8pt;">link</a>
+                                                <a href="https://colorlib.com/activello/tag/lists-2/" class="tag-link-113 tag-link-position-16" title="1 topic" style="font-size: 8pt;">lists</a>
+                                                <a href="https://colorlib.com/activello/tag/markup-2/" class="tag-link-116 tag-link-position-17" title="1 topic" style="font-size: 8pt;">markup</a>
+                                                <a href="https://colorlib.com/activello/tag/post-formats/" class="tag-link-134 tag-link-position-18" title="12 topics" style="font-size: 22pt;">Post Formats</a>
+                                                <a href="https://colorlib.com/activello/tag/quote/" class="tag-link-140 tag-link-position-19" title="1 topic" style="font-size: 8pt;">quote</a>
+                                                <a href="https://colorlib.com/activello/tag/readability/" class="tag-link-143 tag-link-position-20" title="1 topic" style="font-size: 8pt;">readability</a>
+                                                <a href="https://colorlib.com/activello/tag/read-more/" class="tag-link-142 tag-link-position-21" title="1 topic" style="font-size: 8pt;">read more</a>
+                                                <a href="https://colorlib.com/activello/tag/shortcode/" class="tag-link-146 tag-link-position-22" title="4 topics" style="font-size: 14.913580246914pt;">shortcode</a>
+                                                <a href="https://colorlib.com/activello/tag/standard-2/" class="tag-link-148 tag-link-position-23" title="1 topic" style="font-size: 8pt;">standard</a>
+                                                <a href="https://colorlib.com/activello/tag/status/" class="tag-link-149 tag-link-position-24" title="1 topic" style="font-size: 8pt;">status</a>
+                                                <a href="https://colorlib.com/activello/tag/template/" class="tag-link-160 tag-link-position-25" title="5 topics" style="font-size: 16.296296296296pt;">template</a>
+                                                <a href="https://colorlib.com/activello/tag/tiled/" class="tag-link-164 tag-link-position-26" title="1 topic" style="font-size: 8pt;">tiled</a>
+                                                <a href="https://colorlib.com/activello/tag/video/" class="tag-link-170 tag-link-position-27" title="2 topics" style="font-size: 11.111111111111pt;">video</a>
+                                                <a href="https://colorlib.com/activello/tag/videopress/" class="tag-link-171 tag-link-position-28" title="1 topic" style="font-size: 8pt;">videopress</a>
+                                                <a href="https://colorlib.com/activello/tag/wordpress-tv/" class="tag-link-174 tag-link-position-29" title="1 topic" style="font-size: 8pt;">wordpress.tv</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </section><!-- .error-404 -->
+                    </div>
+                </main><!-- #main -->
+            </div>
+
+        </div>
+
+        @{ Html.RenderPartial("_Sidebar"); }
+    </div>
+</div>

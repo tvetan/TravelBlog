@@ -2,12 +2,11 @@
 @{
     var homePageModel = Model.Content.AncestorOrSelf(1);
 
+    var aboutUsTitle = CurrentPage.GetPropertyValue(HomeDocumentTypeConsts.AboutMeTitle,
+        homePageModel.GetPropertyValue(HomeDocumentTypeConsts.AboutMeTitle));
 
-    var siteDescription = CurrentPage.GetPropertyValue(HomeDocumentTypeConsts.SiteDescription,
-            homePageModel.GetPropertyValue(HomeDocumentTypeConsts.SiteDescription));
-
-    var keywords = CurrentPage.GetPropertyValue(HomeDocumentTypeConsts.SiteKeywords,
-    homePageModel.GetPropertyValue(HomeDocumentTypeConsts.SiteKeywords));
+    var aboutUsText = CurrentPage.GetPropertyValue(HomeDocumentTypeConsts.AboutMeText,
+        homePageModel.GetPropertyValue(HomeDocumentTypeConsts.AboutMeText));
 }
 
 
@@ -15,16 +14,15 @@
 <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
     <div class="inner">
         <aside id="text-2" class="widget widget_text">
-            <h3 class="widget-title">About Me</h3>			<div class="textwidget">
+            <h3 class="widget-title">@aboutUsTitle</h3>	
+            <div class="textwidget">
                 <p><img src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1438109491414-7198515b166b1.jpg" alt="About Me" scale="0"></p>
-                <p>My name is <strong>Activello</strong> and I am an awesome WordPress blog theme for photography, food, travel and other blogs. I was created by <strong><em><a href="https://colorlib.com/" taget="_blank">colorlib</a></em></strong>. </p>
+                <p>@Html.Raw(aboutUsText) </p>
             </div>
         </aside><aside id="activello-social-2" class="widget activello-social">
             <h3 class="widget-title">Follow Me</h3>
             <!-- social icons -->
             <div class="social-icons sticky-sidebar-social">
-
-
                 <nav id="social" class="social-icons">
                     <ul id="menu-social-items" class="social-menu">
                         <li id="menu-item-1734" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1734"><a href="https://www.facebook.com/colorlib" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.facebook.com/colorlib', 'Facebook');"><i class="social_icon fa"><span>Facebook</span></i></a></li>
@@ -204,14 +202,14 @@
             </div>
         </aside>
         @*<aside id="text-4" class="widget widget_text">
-            <h3 class="widget-title">This Theme Is AdSense Ready</h3>			<div class="textwidget">
-                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                
-                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6200795649377457" data-ad-slot="3169571723" data-ad-format="auto"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-        </aside>*@
+                <h3 class="widget-title">This Theme Is AdSense Ready</h3>			<div class="textwidget">
+                    <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6200795649377457" data-ad-slot="3169571723" data-ad-format="auto"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </aside>*@
     </div>
 </div>

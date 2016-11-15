@@ -253,7 +253,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseModel.cs" />
+    <Compile Include="BlogPostModel.cs" />
     <Compile Include="ContactRequestModel.cs" />
+    <Compile Include="HomeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextModel.cs" />
   </ItemGroup>

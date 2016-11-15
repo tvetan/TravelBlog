@@ -7,10 +7,16 @@
 
 
         // Social
-        public static string FacebookLink = "facebookLink";
-        public static string TwitterLink = "twitterLink";
-        public static string PinterestLink = "pinterestLink";
-        public static string YoutubeLink = "youtubeLink";
-        public static string InstagramLink = "instagramLink";
+        public const string FacebookLink = "facebookLink";
+        public const string TwitterLink = "twitterLink";
+        public const string PinterestLink = "pinterestLink";
+        public const string YoutubeLink = "youtubeLink";
+        public const string InstagramLink = "instagramLink";
+
+        // Sidebar 
+
+        public const string AboutMeTitle = "aboutMeTitle";
+        public const string AboutMeImage = "aboutMeImage";
+        public const string AboutMeText = "aboutMeText";
     }
 }
