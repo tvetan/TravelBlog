@@ -1,0 +1,217 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    var homePageModel = Model.Content.AncestorOrSelf(1);
+
+
+    var siteDescription = CurrentPage.GetPropertyValue(HomeDocumentTypeConsts.SiteDescription,
+            homePageModel.GetPropertyValue(HomeDocumentTypeConsts.SiteDescription));
+
+    var keywords = CurrentPage.GetPropertyValue(HomeDocumentTypeConsts.SiteKeywords,
+    homePageModel.GetPropertyValue(HomeDocumentTypeConsts.SiteKeywords));
+}
+
+
+
+<div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
+    <div class="inner">
+        <aside id="text-2" class="widget widget_text">
+            <h3 class="widget-title">About Me</h3>			<div class="textwidget">
+                <p><img src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1438109491414-7198515b166b1.jpg" alt="About Me" scale="0"></p>
+                <p>My name is <strong>Activello</strong> and I am an awesome WordPress blog theme for photography, food, travel and other blogs. I was created by <strong><em><a href="https://colorlib.com/" taget="_blank">colorlib</a></em></strong>. </p>
+            </div>
+        </aside><aside id="activello-social-2" class="widget activello-social">
+            <h3 class="widget-title">Follow Me</h3>
+            <!-- social icons -->
+            <div class="social-icons sticky-sidebar-social">
+
+
+                <nav id="social" class="social-icons">
+                    <ul id="menu-social-items" class="social-menu">
+                        <li id="menu-item-1734" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1734"><a href="https://www.facebook.com/colorlib" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.facebook.com/colorlib', 'Facebook');"><i class="social_icon fa"><span>Facebook</span></i></a></li>
+                        <li id="menu-item-1735" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1735"><a href="http://twitter.com/colorlib" onclick="__gaTracker('send', 'event', 'outbound-widget', 'http://twitter.com/colorlib', 'Twitter');"><i class="social_icon fa"><span>Twitter</span></i></a></li>
+                        <li id="menu-item-1736" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1736"><a href="https://www.youtube.com/channel/UCOaovjLNXdIch2vLFsw_uew" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.youtube.com/channel/UCOaovjLNXdIch2vLFsw_uew', 'youtube');"><i class="social_icon fa"><span>youtube</span></i></a></li>
+                        <li id="menu-item-1737" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1737"><a href="https://plus.google.com/100289203607749737039" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://plus.google.com/100289203607749737039', 'Google+');"><i class="social_icon fa"><span>Google+</span></i></a></li>
+                        <li id="menu-item-1738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1738"><a href="http://instagram.com" onclick="__gaTracker('send', 'event', 'outbound-widget', 'http://instagram.com', 'Instagram');"><i class="social_icon fa"><span>Instagram</span></i></a></li>
+                        <li id="menu-item-1739" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1739"><a href="https://github.com/puikinsh/" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://github.com/puikinsh/', 'Github');"><i class="social_icon fa"><span>Github</span></i></a></li>
+                    </ul>
+                </nav>
+
+            </div><!-- end social icons -->
+
+
+        </aside><aside id="activello_recent_posts-2" class="widget activello-recent-posts">
+            <h3 class="widget-title">Recent Posts</h3>
+            <!-- recent posts -->
+            <div class="recent-posts-wrapper">
+
+
+
+                <!-- post -->
+                <div class="post">
+
+                    <!-- image -->
+                    <div class="post-image gallery">
+
+                        <a href="https://colorlib.com/activello/post-format-gallery/"><img width="150" height="150" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="photo-1429734160945-4f85244d6a5a" srcset="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-150x150.jpg 150w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-180x180.jpg 180w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-300x300.jpg 300w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-600x600.jpg 600w" sizes="(max-width: 150px) 100vw, 150px"></a>
+
+                    </div> <!-- end post image -->
+                    <!-- content -->
+                    <div class="post-content">
+
+                        <a href="https://colorlib.com/activello/post-format-gallery/">Post Format: Gallery</a>
+                        <span class="date">- 12 Nov , 2015</span>
+
+                    </div><!-- end content -->
+                </div><!-- end post -->
+                <!-- post -->
+                <div class="post">
+
+                    <!-- image -->
+                    <div class="post-image ">
+
+                        <a href="https://colorlib.com/activello/template-featured-image-vertical/"><img width="150" height="150" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="photo-1437915015400-137312b61975" srcset="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-150x150.jpg 150w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-180x180.jpg 180w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-300x300.jpg 300w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-600x600.jpg 600w" sizes="(max-width: 150px) 100vw, 150px"></a>
+
+                    </div> <!-- end post image -->
+                    <!-- content -->
+                    <div class="post-content">
+
+                        <a href="https://colorlib.com/activello/template-featured-image-vertical/">Template: Featured Image (No Sidebar Layout)</a>
+                        <span class="date">- 11 Nov , 2015</span>
+
+                    </div><!-- end content -->
+                </div><!-- end post -->
+                <!-- post -->
+                <div class="post">
+
+                    <!-- image -->
+                    <div class="post-image ">
+
+                        <a href="https://colorlib.com/activello/template-featured-image-horizontal/"><img width="150" height="150" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1431578500526-4d9613015464-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="photo-1431578500526-4d9613015464" srcset="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1431578500526-4d9613015464-150x150.jpg 150w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1431578500526-4d9613015464-180x180.jpg 180w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1431578500526-4d9613015464-300x300.jpg 300w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1431578500526-4d9613015464-600x600.jpg 600w" sizes="(max-width: 150px) 100vw, 150px"></a>
+
+                    </div> <!-- end post image -->
+                    <!-- content -->
+                    <div class="post-content">
+
+                        <a href="https://colorlib.com/activello/template-featured-image-horizontal/">Template: Featured Image (Full Width No Sidebar Layout)</a>
+                        <span class="date">- 01 Nov , 2015</span>
+
+                    </div><!-- end content -->
+                </div><!-- end post -->
+
+
+
+            </div> <!-- end posts wrapper -->
+
+        </aside><aside id="search-2" class="widget widget_search">
+            <form role="search" method="get" class="form-search" action="https://colorlib.com/activello/">
+                <div class="input-group">
+                    <label class="screen-reader-text" for="s">Search for:</label>
+                    <input type="text" class="form-control search-query" placeholder="Search…" value="" name="s" title="Search for:">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-default" name="submit" id="searchsubmit" value="Search">Search</button>
+                    </span>
+                </div>
+            </form>
+        </aside><aside id="activello-cats-2" class="widget activello-cats">
+            <h3 class="widget-title">Categories</h3>
+
+            <div class="cats-widget">
+
+                <ul>
+                    <li class="cat-item cat-item-38">
+                        <a href="https://colorlib.com/activello/category/post-formats/" title="Posts in this category test post formats.">Post Formats</a> <span>11</span>
+                    </li>
+                    <li class="cat-item cat-item-49">
+                        <a href="https://colorlib.com/activello/category/template-2/" title="Posts with template-related tests">Template</a> <span>5</span>
+                    </li>
+                    <li class="cat-item cat-item-9">
+                        <a href="https://colorlib.com/activello/category/cat-a/">Cat A</a> <span>3</span>
+                    </li>
+                    <li class="cat-item cat-item-19">
+                        <a href="https://colorlib.com/activello/category/edge-case-2/" title="Posts that have edge-case related tests">Edge Case</a> <span>3</span>
+                    </li>
+                    <li class="cat-item cat-item-10">
+                        <a href="https://colorlib.com/activello/category/cat-b/">Cat B</a> <span>2</span>
+                    </li>
+                </ul>
+
+            </div><!-- end widget content -->
+
+        </aside><aside id="blog_subscription-2" class="widget jetpack_subscription_widget">
+            <h3 class="widget-title">Subscribe to Blog via Email</h3>
+            <form action="#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-2">
+                <div id="subscribe-text">
+                    <p>Enter your email address to subscribe to this blog and receive notifications of new posts by email.</p>
+                </div><p>Join 5 other subscribers</p>
+                <p id="subscribe-email">
+                    <label id="jetpack-subscribe-label" for="subscribe-field-blog_subscription-2" style="clip: rect(1px 1px 1px 1px); position: absolute; height: 1px; width: 1px; overflow: hidden;">
+                        Email Address
+                    </label>
+                    <input type="email" name="email" required="required" class="required" value="" id="subscribe-field-blog_subscription-2" placeholder="Email Address">
+                </p>
+
+                <p id="subscribe-submit">
+                    <input type="hidden" name="action" value="subscribe">
+                    <input type="hidden" name="source" value="https://colorlib.com/activello/">
+                    <input type="hidden" name="sub-type" value="widget">
+                    <input type="hidden" name="redirect_fragment" value="blog_subscription-2">
+                    <input type="submit" value="Subscribe" name="jetpack_subscriptions_widget">
+                </p>
+            </form>
+
+            <script>
+                /*
+                Custom functionality for safari and IE
+                 */
+                (function (d) {
+                    // In case the placeholder functionality is available we remove labels
+                    if (('placeholder' in d.createElement('input'))) {
+                        var label = d.querySelector('label[for=subscribe-field-blog_subscription-2]');
+                        label.style.clip = 'rect(1px, 1px, 1px, 1px)';
+                        label.style.position = 'absolute';
+                        label.style.height = '1px';
+                        label.style.width = '1px';
+                        label.style.overflow = 'hidden';
+                    }
+
+                    // Make sure the email value is filled in before allowing submit
+                    var form = d.getElementById('subscribe-blog-blog_subscription-2'),
+                        input = d.getElementById('subscribe-field-blog_subscription-2'),
+                        handler = function (event) {
+                            if ('' === input.value) {
+                                input.focus();
+
+                                if (event.preventDefault) {
+                                    event.preventDefault();
+                                }
+
+                                return false;
+                            }
+                        };
+
+                    if (window.addEventListener) {
+                        form.addEventListener('submit', handler, false);
+                    } else {
+                        form.attachEvent('onsubmit', handler);
+                    }
+                })(document);
+            </script>
+
+        </aside><aside id="text-3" class="widget widget_text">
+            <h3 class="widget-title">Follow Me on Instagram</h3>			<div class="textwidget">
+                <!-- SnapWidget -->
+                <iframe src="https://snapwidget.com/in/?u=Z29wcm98aW58MTA1fDN8M3x8bm98NXxub25lfG9uU3RhcnR8eWVzfG5v&amp;ve=121115" title="Instagram Widget" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:330px; height:330px"></iframe>
+            </div>
+        </aside>
+        @*<aside id="text-4" class="widget widget_text">
+            <h3 class="widget-title">This Theme Is AdSense Ready</h3>			<div class="textwidget">
+                <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6200795649377457" data-ad-slot="3169571723" data-ad-format="auto"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+        </aside>*@
+    </div>
+</div>

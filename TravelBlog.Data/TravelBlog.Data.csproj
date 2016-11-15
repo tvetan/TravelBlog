@@ -254,11 +254,16 @@
   <ItemGroup>
     <Compile Include="ContactRequestService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TravelBlog.Models\TravelBlog.Models.csproj">
       <Project>{40a3084b-b681-46a8-bcb2-e888e2b08747}</Project>
       <Name>TravelBlog.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TravelBlog.Utils\TravelBlog.Utils.csproj">
+      <Project>{EA45D67F-73DA-4249-948F-10E246DB677C}</Project>
+      <Name>TravelBlog.Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
