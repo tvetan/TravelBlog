@@ -1,4 +1,5 @@
 ﻿@inherits UmbracoTemplatePage
+    @using TravelBlog.Data
 @{
     var homePageModel = Model.Content.AncestorOrSelf(1);
 
@@ -7,16 +8,27 @@
 
     var aboutUsText = CurrentPage.GetPropertyValue(HomeDocumentTypeConsts.AboutMeText,
         homePageModel.GetPropertyValue(HomeDocumentTypeConsts.AboutMeText));
+
+    var facebookLink = homePageModel.GetPropertyValue(HomeDocumentTypeConsts.FacebookLink);
+    var twitterLink = homePageModel.GetPropertyValue(HomeDocumentTypeConsts.TwitterLink);
+    var pinterestLink = homePageModel.GetPropertyValue(HomeDocumentTypeConsts.PinterestLink);
+    var youtubeLink = homePageModel.GetPropertyValue(HomeDocumentTypeConsts.YoutubeLink);
+    var instagramLink = homePageModel.GetPropertyValue(HomeDocumentTypeConsts.InstagramLink);
+
+    var aboutUsImage = Methods.GetImage(homePageModel.GetPropertyValue<int>(HomeDocumentTypeConsts.AboutMeImage));
+
+    var latestPosts = homePageModel
+    .Descendants(DocumentTypesConsts.BlogPost)
+    .OrderByDescending(x => x.CreateDate)
+    .Take(3);
 }
-
-
 
 <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
     <div class="inner">
         <aside id="text-2" class="widget widget_text">
-            <h3 class="widget-title">@aboutUsTitle</h3>	
+            <h3 class="widget-title">@aboutUsTitle</h3>
             <div class="textwidget">
-                <p><img src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1438109491414-7198515b166b1.jpg" alt="About Me" scale="0"></p>
+                <p><img src="@aboutUsImage" alt="@aboutUsTitle" scale="0"></p>
                 <p>@Html.Raw(aboutUsText) </p>
             </div>
         </aside><aside id="activello-social-2" class="widget activello-social">
@@ -25,12 +37,36 @@
             <div class="social-icons sticky-sidebar-social">
                 <nav id="social" class="social-icons">
                     <ul id="menu-social-items" class="social-menu">
-                        <li id="menu-item-1734" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1734"><a href="https://www.facebook.com/colorlib" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.facebook.com/colorlib', 'Facebook');"><i class="social_icon fa"><span>Facebook</span></i></a></li>
-                        <li id="menu-item-1735" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1735"><a href="http://twitter.com/colorlib" onclick="__gaTracker('send', 'event', 'outbound-widget', 'http://twitter.com/colorlib', 'Twitter');"><i class="social_icon fa"><span>Twitter</span></i></a></li>
-                        <li id="menu-item-1736" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1736"><a href="https://www.youtube.com/channel/UCOaovjLNXdIch2vLFsw_uew" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://www.youtube.com/channel/UCOaovjLNXdIch2vLFsw_uew', 'youtube');"><i class="social_icon fa"><span>youtube</span></i></a></li>
-                        <li id="menu-item-1737" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1737"><a href="https://plus.google.com/100289203607749737039" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://plus.google.com/100289203607749737039', 'Google+');"><i class="social_icon fa"><span>Google+</span></i></a></li>
-                        <li id="menu-item-1738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1738"><a href="http://instagram.com" onclick="__gaTracker('send', 'event', 'outbound-widget', 'http://instagram.com', 'Instagram');"><i class="social_icon fa"><span>Instagram</span></i></a></li>
-                        <li id="menu-item-1739" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1739"><a href="https://github.com/puikinsh/" onclick="__gaTracker('send', 'event', 'outbound-widget', 'https://github.com/puikinsh/', 'Github');"><i class="social_icon fa"><span>Github</span></i></a></li>
+                        <li id="menu-item-1734" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1734">
+                            <a href="@facebookLink">
+                                <i class="social_icon fa">
+                                    <span>Facebook</span>
+                                </i>
+                            </a>
+                        </li>
+                        <li id="menu-item-1735" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1735">
+                            <a href="@twitterLink" onclick=">
+                                <i class="social_icon fa">
+                                    <span>Twitter</span>
+                                </i>
+                            </a>
+                        </li>
+                        <li id="menu-item-1736" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1736">
+                            <a href="@youtubeLink">
+                                <i class="social_icon fa"><span>youtube</span></i>
+                            </a>
+                        </li>
+                        
+                        <li id="menu-item-1738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1738">
+                            <a href="@instagramLink">
+                                <i class="social_icon fa"><span>Instagram</span></i>
+                            </a>
+                        </li>
+                        <li id="menu-item-1739" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1739">
+                            <a href="@pinterestLink">
+                                <i class="social_icon fa"><span>Pinterest</span></i>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
 
@@ -42,27 +78,31 @@
             <!-- recent posts -->
             <div class="recent-posts-wrapper">
 
+                @foreach (var post in latestPosts)
+                {
+                    <div class="post">
 
+                        <!-- image -->
+                        <div class="post-image gallery">
+
+                            <a href="https://colorlib.com/activello/post-format-gallery/">
+                            <img width="150" height="150" src="@Methods.GetImage(post.GetPropertyValue<int>(PostDocumentTypeConsts.MainImage));" class="attachment-thumbnail size-thumbnail wp-post-image" alt="photo-1429734160945-4f85244d6a5a" srcset="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-150x150.jpg 150w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-180x180.jpg 180w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-300x300.jpg 300w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-600x600.jpg 600w" sizes="(max-width: 150px) 100vw, 150px"></a>
+
+                        </div> <!-- end post image -->
+                        <!-- content -->
+                        <div class="post-content">
+
+                            <a href="@post.Url">Post Format: Gallery</a>
+                            <span class="date">- @post.CreateDate.ToString("dd MMM, yyyy") 12 Nov , 2015</span>
+
+                        </div><!-- end content -->
+                    </div><!-- end post -->
+                }
 
                 <!-- post -->
-                <div class="post">
-
-                    <!-- image -->
-                    <div class="post-image gallery">
-
-                        <a href="https://colorlib.com/activello/post-format-gallery/"><img width="150" height="150" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="photo-1429734160945-4f85244d6a5a" srcset="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-150x150.jpg 150w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-180x180.jpg 180w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-300x300.jpg 300w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-600x600.jpg 600w" sizes="(max-width: 150px) 100vw, 150px"></a>
-
-                    </div> <!-- end post image -->
-                    <!-- content -->
-                    <div class="post-content">
-
-                        <a href="https://colorlib.com/activello/post-format-gallery/">Post Format: Gallery</a>
-                        <span class="date">- 12 Nov , 2015</span>
-
-                    </div><!-- end content -->
-                </div><!-- end post -->
+         
                 <!-- post -->
-                <div class="post">
+                @*<div class="post">
 
                     <!-- image -->
                     <div class="post-image ">
@@ -94,7 +134,7 @@
                         <span class="date">- 01 Nov , 2015</span>
 
                     </div><!-- end content -->
-                </div><!-- end post -->
+                </div><!-- end post -->*@
 
 
 
@@ -110,7 +150,8 @@
                     </span>
                 </div>
             </form>
-        </aside><aside id="activello-cats-2" class="widget activello-cats">
+        </aside>
+        <aside id="activello-cats-2" class="widget activello-cats">
             <h3 class="widget-title">Categories</h3>
 
             <div class="cats-widget">
@@ -196,11 +237,13 @@
             </script>
 
         </aside><aside id="text-3" class="widget widget_text">
-            <h3 class="widget-title">Follow Me on Instagram</h3>			<div class="textwidget">
-                <!-- SnapWidget -->
-                <iframe src="https://snapwidget.com/in/?u=Z29wcm98aW58MTA1fDN8M3x8bm98NXxub25lfG9uU3RhcnR8eWVzfG5v&amp;ve=121115" title="Instagram Widget" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:330px; height:330px"></iframe>
+            <h3 class="widget-title">Follow Me on Instagram</h3>
+            <div class="textwidget">
+                <iframe src="https://snapwidget.com/embed/290089" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:330px; height:330px "></iframe>
             </div>
         </aside>
+
+        <!-- SnapWidget -->
         @*<aside id="text-4" class="widget widget_text">
                 <h3 class="widget-title">This Theme Is AdSense Ready</h3>			<div class="textwidget">
                     <script async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
