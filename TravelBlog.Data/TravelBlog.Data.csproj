@@ -252,6 +252,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlogPostsService.cs" />
+    <Compile Include="CategoryService.cs" />
     <Compile Include="ContactRequestService.cs" />
     <Compile Include="HomeService.cs" />
     <Compile Include="Methods.cs" />

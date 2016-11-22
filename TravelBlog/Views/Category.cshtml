@@ -1,0 +1,55 @@
+﻿@inherits UmbracoViewPage<CategoryModel>
+
+@{
+    Layout = "Master.cshtml";
+}
+
+
+<div class="container main-content-area">
+
+
+    <div class="row">
+        <div class="main-content-inner col-sm-12 col-md-8 side-right">
+
+            <section id="primary" class="content-area">
+                <main id="main" class="site-main" role="main">
+
+
+                    <header class="page-header">
+                        <h1 class="page-title">
+                            @Model.Content.Name
+                        </h1>
+                        <div class="taxonomy-description">
+                            <p>Posts in this category @Model.Content.Name.</p>
+                        </div>
+                    </header><!-- .page-header -->
+
+
+
+
+                    @foreach (var post in Model.AllBlogPosts)
+                    {
+                        Html.RenderPartial("_Post", post);
+                    }
+
+
+                    <nav class="navigation paging-navigation" role="navigation">
+                        <h1 class="screen-reader-text">Posts navigation</h1>
+                        <div class="nav-links">
+
+                            <div class="nav-previous"> <a href="https://colorlib.com/activello/category/post-formats/page/2/">Older posts</a></div>
+
+
+                        </div><!-- .nav-links -->
+                    </nav><!-- .navigation -->
+
+
+                </main><!-- #main -->
+            </section><!-- #primary -->
+
+        </div>
+
+
+        @{ Html.RenderPartial("_Sidebar"); }
+    </div>
+</div>

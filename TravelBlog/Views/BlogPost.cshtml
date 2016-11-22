@@ -1,6 +1,105 @@
-﻿@inherits UmbracoTemplatePage
+﻿@inherits UmbracoViewPage<BlogPostModel>
 @{
     Layout = "Master.cshtml";
 }
+<div class="container main-content-area">
 
-@CurrentPage.GetGridHtml("content", "fanoe")
+    <div class="cat-title">
+        <ul class="post-categories">
+            <li><a href="/@Model.Category" rel="category tag">@Model.Category</a></li>
+        </ul>
+    </div>
+
+    <div class="row">
+        <div class="main-content-inner col-sm-12 col-md-8 side-right">
+
+            <div id="primary" class="content-area">
+                <main id="main" class="site-main" role="main">
+
+                    <article id="post-555" class="post-555 post type-post status-publish format-gallery has-post-thumbnail hentry category-post-formats tag-gallery tag-post-formats tag-shortcode post_format-post-format-gallery">
+                        <div class="blog-item-wrap">
+                            <div class="post-inner-content">
+                                <header class="entry-header page-header">
+                                    <h1 class="entry-title">@Model.Title</h1>
+
+                                    <div class="entry-meta">
+                                        <span class="posted-on">Posted on <a href="https://colorlib.com/activello/post-format-gallery/" rel="bookmark"><time class="entry-date published" datetime="2015-11-12T07:24:14+00:00">November 12, 2015</time><time class="updated" datetime="2015-11-12T14:25:27+00:00">@Model.CreateDate.ToString("MMMM dd, yyyy")</time></a></span>
+
+                                    </div><!-- .entry-meta -->
+                                </header><!-- .entry-header -->
+
+                                @if (!string.IsNullOrEmpty(Model.MainImageUrl))
+                                {
+                                    <a href="@Model.Url" title="@Model.Title">
+                                        <img width="1170" height="550" src="@Model.MainImageUrl" class="single-featured wp-post-image" alt="@Model.Title image" scale="0">
+                                    </a>
+                                }
+
+                                <div class="entry-content">
+                                    @Html.Raw(Model.BlogPostContent)
+
+
+                                    <div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-pinterest"><a rel="nofollow" data-shared="sharing-pinterest-555" class="share-pinterest sd-button share-icon" href="https://colorlib.com/activello/post-format-gallery/?share=pinterest&amp;nb=1" target="_blank" title="Click to share on Pinterest"><span>Pinterest</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-555" class="share-linkedin sd-button share-icon" href="https://colorlib.com/activello/post-format-gallery/?share=linkedin&amp;nb=1" target="_blank" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-555" class="share-facebook sd-button share-icon" href="https://colorlib.com/activello/post-format-gallery/?share=facebook&amp;nb=1" target="_blank" title="Click to share on Facebook"><span>Facebook<span class="share-count">1</span></span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-555" class="share-twitter sd-button share-icon" href="https://colorlib.com/activello/post-format-gallery/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-email share-service-visible"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://colorlib.com/activello/post-format-gallery/?share=email&amp;nb=1" target="_blank" title="Click to email this to a friend"><span>Email</span></a></li><li class="share-print"><a rel="nofollow" data-shared="" class="share-print sd-button share-icon" href="https://colorlib.com/activello/post-format-gallery/#print" target="_blank" title="Click to print"><span>Print</span></a></li><li class="share-end"></li></ul></div></div></div>
+                                    <div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
+                                        <h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+                                        <div class="jp-relatedposts-items jp-relatedposts-items-visual">
+                                            <div class="jp-relatedposts-post jp-relatedposts-post0 jp-relatedposts-post-thumbs" data-post-id="1011" data-post-format="false">
+                                                <a class="jp-relatedposts-post-a" href="https://colorlib.com/activello/template-featured-image-horizontal/" title="Template: Featured Image (Full Width No Sidebar Layout)
+
+This post should display a featured image, if the theme supports it. Non-square images can provide some unique styling issues." rel="nofollow" data-origin="555" data-position="0"><img class="jp-relatedposts-post-img" src="https://i0.wp.com/colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1431578500526-4d9613015464.jpg?zoom=1.5&amp;resize=213%2C121&amp;ssl=1" width="213" alt="Template: Featured Image (Full Width No Sidebar Layout)" height="121" srcset="https://i0.wp.com/colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1431578500526-4d9613015464.jpg?zoom=1.5&amp;resize=213%2C121&amp;ssl=1" src-orig="https://i0.wp.com/colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1431578500526-4d9613015464.jpg?resize=350%2C200&amp;ssl=1" scale="1.5"></a><h4 class="jp-relatedposts-post-title">
+                                                    <a class="jp-relatedposts-post-a" href="https://colorlib.com/activello/template-featured-image-horizontal/" title="Template: Featured Image (Full Width No Sidebar Layout)
+
+This post should display a featured image, if the theme supports it. Non-square images can provide some unique styling issues." rel="nofollow" data-origin="555" data-position="0">Template: Featured Image (Full Width No Sidebar Layout)</a>
+                                                </h4><p class="jp-relatedposts-post-excerpt">This post should display a featured image, if the theme supports it. Non-square images can provide some unique styling issues.</p><p class="jp-relatedposts-post-date">November 1, 2015</p><p class="jp-relatedposts-post-context">In "Template"</p>
+                                            </div><div class="jp-relatedposts-post jp-relatedposts-post1 jp-relatedposts-post-thumbs" data-post-id="568" data-post-format="image">
+                                                <a class="jp-relatedposts-post-a" href="https://colorlib.com/activello/post-format-image-linked/" title="Post Format: Image (Linked)
+
+Fusce pellentesque ante sed neque venenatis accumsan eget sit amet velit. Suspendisse neque sapien, dignissim ut orci a, tincidunt finibus ligula." rel="nofollow" data-origin="555" data-position="1"><img class="jp-relatedposts-post-img" src="https://i2.wp.com/colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1437240443155-612416af4d5a.jpg?zoom=1.5&amp;resize=213%2C121&amp;ssl=1" width="213" alt="Post Format: Image (Linked)" height="121" srcset="https://i2.wp.com/colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1437240443155-612416af4d5a.jpg?zoom=1.5&amp;resize=213%2C121&amp;ssl=1" src-orig="https://i2.wp.com/colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1437240443155-612416af4d5a.jpg?resize=350%2C200&amp;ssl=1" scale="1.5"></a><h4 class="jp-relatedposts-post-title">
+                                                    <a class="jp-relatedposts-post-a" href="https://colorlib.com/activello/post-format-image-linked/" title="Post Format: Image (Linked)
+
+Fusce pellentesque ante sed neque venenatis accumsan eget sit amet velit. Suspendisse neque sapien, dignissim ut orci a, tincidunt finibus ligula." rel="nofollow" data-origin="555" data-position="1">Post Format: Image (Linked)</a>
+                                                </h4><p class="jp-relatedposts-post-excerpt">Fusce pellentesque ante sed neque venenatis accumsan eget sit amet velit. Suspendisse neque sapien, dignissim ut orci a, tincidunt finibus ligula.</p><p class="jp-relatedposts-post-date">August 6, 2015</p><p class="jp-relatedposts-post-context">In "Post Formats"</p>
+                                            </div><div class="jp-relatedposts-post jp-relatedposts-post2 jp-relatedposts-post-thumbs" data-post-id="582" data-post-format="video">
+                                                <a class="jp-relatedposts-post-a" href="https://colorlib.com/activello/post-format-video-wordpresstv/" title="Post Format: Video (Left Sidebar)
+
+In nobis iriure sed, error discere sententiae vim et. Bonorum luptatum consectetuer ex vis, aliquando dissentiet eum te." rel="nofollow" data-origin="555" data-position="2"><img class="jp-relatedposts-post-img" src="https://i0.wp.com/colorlib.com/activello/wp-content/uploads/sites/10/2015/11/tumblr_nu5xj4ut2h1tomxvuo6_1280.jpg?zoom=1.5&amp;resize=213%2C121&amp;ssl=1" width="213" alt="Post Format: Video (Left Sidebar)" height="121" srcset="https://i0.wp.com/colorlib.com/activello/wp-content/uploads/sites/10/2015/11/tumblr_nu5xj4ut2h1tomxvuo6_1280.jpg?zoom=1.5&amp;resize=213%2C121&amp;ssl=1" src-orig="https://i0.wp.com/colorlib.com/activello/wp-content/uploads/sites/10/2015/11/tumblr_nu5xj4ut2h1tomxvuo6_1280.jpg?resize=350%2C200&amp;ssl=1" scale="1.5"></a><h4 class="jp-relatedposts-post-title">
+                                                    <a class="jp-relatedposts-post-a" href="https://colorlib.com/activello/post-format-video-wordpresstv/" title="Post Format: Video (Left Sidebar)
+
+In nobis iriure sed, error discere sententiae vim et. Bonorum luptatum consectetuer ex vis, aliquando dissentiet eum te." rel="nofollow" data-origin="555" data-position="2">Post Format: Video (Left Sidebar)</a>
+                                                </h4><p class="jp-relatedposts-post-excerpt">In nobis iriure sed, error discere sententiae vim et. Bonorum luptatum consectetuer ex vis, aliquando dissentiet eum te.</p><p class="jp-relatedposts-post-date">June 3, 2015</p><p class="jp-relatedposts-post-context">In "Post Formats"</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div><!-- .entry-content -->
+                                @*<div class="entry-footer">
+
+                                        <!-- tags -->
+                                        <div class="tagcloud">
+
+                                            <a href="https://colorlib.com/activello/tag/gallery/">gallery</a> <a href="https://colorlib.com/activello/tag/post-formats/">Post Formats</a> <a href="https://colorlib.com/activello/tag/shortcode/">shortcode</a>
+                                        </div>
+                                        <!-- end tags -->
+                                    </div><!-- .entry-footer -->*@
+                            </div>
+                        </div>
+                    </article><!-- #post-## -->
+
+                    <nav class="navigation post-navigation" role="navigation">
+                        <h1 class="screen-reader-text">Post navigation</h1>
+                        <div class="nav-links">
+                            <div class="nav-previous">
+                            <a href="https://colorlib.com/activello/post-format-video-videopress/" rel="prev"><i class="fa fa-chevron-left"></i> Post Format: Video (VideoPress)</a></div><div class="nav-next"><a href="https://colorlib.com/activello/post-format-image-linked/" rel="next">Post Format: Image (Linked) 
+                            <i class="fa fa-chevron-right"></i></a></div>
+                        </div><!-- .nav-links -->
+                    </nav>
+
+
+                </main><!-- #main -->
+            </div><!-- #primary -->
+
+        </div>
+
+        @{Html.RenderPartial("_Sidebar"); }
+    </div><!-- close .*-inner (main-content or sidebar, depending if sidebar is used) -->
+</div>

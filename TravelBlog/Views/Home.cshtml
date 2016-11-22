@@ -58,40 +58,7 @@
 
                         @foreach (var post in Model.AllBlogPosts)
                         {
-                            <article id="post-555" class="post-555 post type-post status-publish format-gallery has-post-thumbnail hentry category-post-formats tag-gallery tag-post-formats tag-shortcode post_format-post-format-gallery">
-                                <div class="blog-item-wrap">
-                                    <div class="post-inner-content">
-                                        <header class="entry-header page-header">
-                                            <li class="cat-item cat-item-38">
-                                                <a href="https://colorlib.com/activello/category/post-formats/" title="Posts in this category test post formats.">Post Formats</a>
-                                            </li>
-                                            <h2 class="entry-title"><a href="https://colorlib.com/activello/post-format-gallery/" rel="bookmark">@post.Title</a></h2>
-
-                                            <div class="entry-meta">
-                                                <span class="posted-on">Posted on <a href="https://colorlib.com/activello/post-format-gallery/" rel="bookmark"><time class="entry-date published" datetime="2015-11-12T07:24:14+00:00">@post.CreateDate.ToString("MMMM dd, yyyy")</time><time class="updated" datetime="2015-11-12T14:25:27+00:00">@post.CreateDate.ToString("MM dd, yyyy")</time></a></span>
-
-                                            </div><!-- .entry-meta -->
-                                        </header><!-- .entry-header -->
-
-                                        @if (!string.IsNullOrEmpty(post.MainImageUrl))
-                                        {
-                                            <a href="@post.Url" title="@post.Title">
-                                                <img width="1170" height="550" src="@post.MainImageUrl" class="single-featured wp-post-image" alt="photo-1429734160945-4f85244d6a5a" scale="0">
-                                            </a>
-                                        }
-                                        <div class="entry-content">
-
-                                            <p>@post.Summary</p>
-
-
-                                            <div class="read-more">
-                                                <a href="@post.Url" title="Post Format: Gallery">Read More</a>
-                                            </div>
-
-                                        </div><!-- .entry-content -->
-                                    </div>
-                                </div>
-                            </article><!-- #post-## -->
+                            Html.RenderPartial("_Post", post);
                         }
                     </div>
 

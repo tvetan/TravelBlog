@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using TravelBlog.Models;
 using TravelBlog.Utils.Consts;
 using Umbraco.Core.Models;
@@ -26,6 +22,7 @@ namespace TravelBlog.Data
                    CreateDate = x.CreateDate,
                    Summary = x.GetPropertyValue<string>(PostDocumentTypeConsts.Summary),
                    MainImageUrl = Methods.GetImage(x.GetPropertyValue<int>(PostDocumentTypeConsts.MainImage)),
+                   Category = x.GetPropertyValue<string>(PostDocumentTypeConsts.Category)
                })
                .OrderByDescending(x => x.CreateDate)
                .ToList();

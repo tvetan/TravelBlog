@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TravelBlog.Models
 {
@@ -15,5 +11,7 @@ namespace TravelBlog.Models
         public string Url { get; set; }
         public DateTime CreateDate { get; set; }
         public string Summary { get; set; }
+        public string Category { get; set; }
+        public string BlogPostContent { get; set; }
     }
 }

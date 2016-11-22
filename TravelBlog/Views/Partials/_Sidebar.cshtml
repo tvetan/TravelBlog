@@ -1,5 +1,5 @@
 ﻿@inherits UmbracoTemplatePage
-    @using TravelBlog.Data
+@using TravelBlog.Data
 @{
     var homePageModel = Model.Content.AncestorOrSelf(1);
 
@@ -21,6 +21,11 @@
     .Descendants(DocumentTypesConsts.BlogPost)
     .OrderByDescending(x => x.CreateDate)
     .Take(3);
+
+    var categories = homePageModel
+    .Descendants(DocumentTypesConsts.Category)
+    .OrderByDescending(x => x.Children.Count())
+    .ToList();
 }
 
 <div id="secondary" class="widget-area col-sm-12 col-md-4" role="complementary">
@@ -56,7 +61,7 @@
                                 <i class="social_icon fa"><span>youtube</span></i>
                             </a>
                         </li>
-                        
+
                         <li id="menu-item-1738" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1738">
                             <a href="@instagramLink">
                                 <i class="social_icon fa"><span>Instagram</span></i>
@@ -73,7 +78,8 @@
             </div><!-- end social icons -->
 
 
-        </aside><aside id="activello_recent_posts-2" class="widget activello-recent-posts">
+        </aside>
+        <aside id="activello_recent_posts-2" class="widget activello-recent-posts">
             <h3 class="widget-title">Recent Posts</h3>
             <!-- recent posts -->
             <div class="recent-posts-wrapper">
@@ -86,62 +92,27 @@
                         <div class="post-image gallery">
 
                             <a href="https://colorlib.com/activello/post-format-gallery/">
-                            <img width="150" height="150" src="@Methods.GetImage(post.GetPropertyValue<int>(PostDocumentTypeConsts.MainImage));" class="attachment-thumbnail size-thumbnail wp-post-image" alt="photo-1429734160945-4f85244d6a5a" srcset="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-150x150.jpg 150w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-180x180.jpg 180w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-300x300.jpg 300w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1429734160945-4f85244d6a5a-600x600.jpg 600w" sizes="(max-width: 150px) 100vw, 150px"></a>
+                                <img src="@Methods.GetImage(post.GetPropertyValue<int>(PostDocumentTypeConsts.MainImage))" class="attachment-thumbnail size-thumbnail wp-post-image"
+                                     alt="@post.Name" />
+
+                            </a>
 
                         </div> <!-- end post image -->
                         <!-- content -->
                         <div class="post-content">
 
-                            <a href="@post.Url">Post Format: Gallery</a>
-                            <span class="date">- @post.CreateDate.ToString("dd MMM, yyyy") 12 Nov , 2015</span>
+                            <a href="@post.Url">@post.Name</a>
+                            <span class="date">- @post.CreateDate.ToString("dd MMM, yyyy")</span>
 
                         </div><!-- end content -->
                     </div><!-- end post -->
                 }
 
-                <!-- post -->
-         
-                <!-- post -->
-                @*<div class="post">
-
-                    <!-- image -->
-                    <div class="post-image ">
-
-                        <a href="https://colorlib.com/activello/template-featured-image-vertical/"><img width="150" height="150" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="photo-1437915015400-137312b61975" srcset="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-150x150.jpg 150w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-180x180.jpg 180w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-300x300.jpg 300w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-600x600.jpg 600w" sizes="(max-width: 150px) 100vw, 150px"></a>
-
-                    </div> <!-- end post image -->
-                    <!-- content -->
-                    <div class="post-content">
-
-                        <a href="https://colorlib.com/activello/template-featured-image-vertical/">Template: Featured Image (No Sidebar Layout)</a>
-                        <span class="date">- 11 Nov , 2015</span>
-
-                    </div><!-- end content -->
-                </div><!-- end post -->
-                <!-- post -->
-                <div class="post">
-
-                    <!-- image -->
-                    <div class="post-image ">
-
-                        <a href="https://colorlib.com/activello/template-featured-image-horizontal/"><img width="150" height="150" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1431578500526-4d9613015464-150x150.jpg" class="attachment-thumbnail size-thumbnail wp-post-image" alt="photo-1431578500526-4d9613015464" srcset="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1431578500526-4d9613015464-150x150.jpg 150w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1431578500526-4d9613015464-180x180.jpg 180w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1431578500526-4d9613015464-300x300.jpg 300w, https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1431578500526-4d9613015464-600x600.jpg 600w" sizes="(max-width: 150px) 100vw, 150px"></a>
-
-                    </div> <!-- end post image -->
-                    <!-- content -->
-                    <div class="post-content">
-
-                        <a href="https://colorlib.com/activello/template-featured-image-horizontal/">Template: Featured Image (Full Width No Sidebar Layout)</a>
-                        <span class="date">- 01 Nov , 2015</span>
-
-                    </div><!-- end content -->
-                </div><!-- end post -->*@
-
-
-
             </div> <!-- end posts wrapper -->
 
         </aside><aside id="search-2" class="widget widget_search">
-            <form role="search" method="get" class="form-search" action="https://colorlib.com/activello/">
+            
+        <form role="search" method="get" class="form-search" action="https://colorlib.com/activello/">
                 <div class="input-group">
                     <label class="screen-reader-text" for="s">Search for:</label>
                     <input type="text" class="form-control search-query" placeholder="Search…" value="" name="s" title="Search for:">
@@ -150,6 +121,9 @@
                     </span>
                 </div>
             </form>
+
+
+
         </aside>
         <aside id="activello-cats-2" class="widget activello-cats">
             <h3 class="widget-title">Categories</h3>
@@ -157,21 +131,13 @@
             <div class="cats-widget">
 
                 <ul>
-                    <li class="cat-item cat-item-38">
-                        <a href="https://colorlib.com/activello/category/post-formats/" title="Posts in this category test post formats.">Post Formats</a> <span>11</span>
-                    </li>
-                    <li class="cat-item cat-item-49">
-                        <a href="https://colorlib.com/activello/category/template-2/" title="Posts with template-related tests">Template</a> <span>5</span>
-                    </li>
-                    <li class="cat-item cat-item-9">
-                        <a href="https://colorlib.com/activello/category/cat-a/">Cat A</a> <span>3</span>
-                    </li>
-                    <li class="cat-item cat-item-19">
-                        <a href="https://colorlib.com/activello/category/edge-case-2/" title="Posts that have edge-case related tests">Edge Case</a> <span>3</span>
-                    </li>
-                    <li class="cat-item cat-item-10">
-                        <a href="https://colorlib.com/activello/category/cat-b/">Cat B</a> <span>2</span>
-                    </li>
+                    @foreach (var category in categories)
+                    {
+                        <li class="cat-item cat-item-38">
+                            <a href="@category.Url" title="Posts in this category @category.Name.">@category.Name</a> <span> @category.Children.Count()</span>
+                        </li>
+                    }
+
                 </ul>
 
             </div><!-- end widget content -->

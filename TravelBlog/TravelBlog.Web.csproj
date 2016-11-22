@@ -2991,6 +2991,10 @@
     <Content Include="Views\Partials\_Messages.cshtml" />
     <Content Include="Views\Partials\_Head.cshtml" />
     <Content Include="Views\NotFound.cshtml" />
+    <Content Include="Views\Category.cshtml" />
+    <Content Include="Views\Partials\_Post.cshtml" />
+    <Content Include="Views\SearchResult.cshtml" />
+    <Content Include="Views\Partials\_SearchForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3030,8 +3034,11 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BlogPostController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactFormController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SurfaceControllers\SimpleSearchSurfaceController.cs" />
     <Compile Include="Controllers\TextController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -3041,6 +3048,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
+    <Folder Include="Views\Category\" />
     <Folder Include="Views\ContactForm\" />
     <Folder Include="Views\MacroPartials\" />
   </ItemGroup>

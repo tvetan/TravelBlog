@@ -1,7 +1,10 @@
 ﻿@inherits UmbracoTemplatePage
 @{
     Layout = null;
+    var homePageModel = Model.Content.AncestorOrSelf(1);
+    var tagline = homePageModel.GetPropertyValue("siteTagline").ToString();
 }
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +31,7 @@
                 </a>
             </h1><!-- end of .site-name -->
 
-            <div class="tagline">Gush. Bubi. Everywhere.</div>
+            <div class="tagline">@tagline</div>
         </div>
         <div id="line"></div>
         @RenderBody()

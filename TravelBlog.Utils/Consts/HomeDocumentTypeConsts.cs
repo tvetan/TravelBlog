@@ -5,7 +5,6 @@
         public const string SiteDescription = "siteDescription";
         public const string SiteKeywords = "siteKeywords";
 
-
         // Social
         public const string FacebookLink = "facebookLink";
         public const string TwitterLink = "twitterLink";

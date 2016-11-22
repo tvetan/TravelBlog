@@ -1,0 +1,24 @@
+﻿@inherits UmbracoViewPage<SimpleSearchModel>
+@using TravelBlog.Controllers.SurfaceControllers
+
+<div class="nav-search">
+    @using (Html.BeginUmbracoForm<SimpleSearchSurfaceController>("Find", null, new { @class = "search-form" }, FormMethod.Get))
+    {
+    
+        @Html.TextBoxFor(x => x.SearchedText,
+                new
+                {
+                    placeholder = "Search",
+                    type = "search",
+                    autocomplete = "off",
+                    @class = "search-field"
+                })
+
+        <button type="submit" class="header-search-icon" name="submit" id="searchsubmit" >
+            <i class="fa fa-search"></i>
+        </button>
+    }
+
+
+
+</div>
