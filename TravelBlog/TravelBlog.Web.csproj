@@ -2995,6 +2995,7 @@
     <Content Include="Views\Partials\_Post.cshtml" />
     <Content Include="Views\SearchResult.cshtml" />
     <Content Include="Views\Partials\_SearchForm.cshtml" />
+    <Content Include="Views\Partials\_SidebarSearchForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

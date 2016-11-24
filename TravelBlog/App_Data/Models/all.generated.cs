@@ -8,7 +8,7 @@ using  Umbraco.Web;
 using  Umbraco.ModelsBuilder;
 using  Umbraco.ModelsBuilder.Umbraco;
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "9a99f34241d585c3")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "14c8394795e6fbfe")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.1")]
 
 
@@ -90,6 +90,24 @@ namespace Umbraco.Web.PublishedContentModels
 		public string MainImage
 		{
 			get { return this.GetPropertyValue<string>("mainImage"); }
+		}
+
+		///<summary>
+		/// Next Post
+		///</summary>
+		[ImplementPropertyType("nextPost")]
+		public object NextPost
+		{
+			get { return this.GetPropertyValue("nextPost"); }
+		}
+
+		///<summary>
+		/// Previous Post
+		///</summary>
+		[ImplementPropertyType("previousPost")]
+		public object PreviousPost
+		{
+			get { return this.GetPropertyValue("previousPost"); }
 		}
 
 		///<summary>

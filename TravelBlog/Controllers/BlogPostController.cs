@@ -16,12 +16,13 @@ namespace TravelBlog.Controllers
 
         public BlogPostController()
         {
+           
             this.BlogPostsService = new BlogPostsService();
         }
 
         public ActionResult Index()
         {
-            var model = this.BlogPostsService.GetModel(this.CurrentPage);
+            var model = this.BlogPostsService.GetModel(this.CurrentPage, Umbraco);
             return CurrentTemplate(model);
         }
     }

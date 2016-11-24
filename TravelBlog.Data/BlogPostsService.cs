@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TravelBlog.Models;
 using TravelBlog.Utils.Consts;
@@ -25,9 +26,31 @@ namespace TravelBlog.Data
                 }).OrderByDescending(x => x.CreateDate).ToList();
         }
 
-        public BlogPostModel GetModel(IPublishedContent currentPage)
+        public BlogPostModel GetModel(IPublishedContent currentPage, UmbracoHelper umbraco)
         {
-            var blogPostModel = new BlogPostModel
+            BlogPostModel blogPostModel = GetModel(currentPage);
+
+            if (currentPage.HasValue("nextpost"))
+            {
+                var node = umbraco.TypedContent(currentPage.GetPropertyValue<int>("nextpost"));
+                blogPostModel.NextPost = GetModel(node);
+            }
+
+            if (currentPage.HasValue("previouspost"))
+            {
+                var node = umbraco.TypedContent(currentPage.GetPropertyValue<int>("previouspost"));
+                blogPostModel.PreviousPost= GetModel(node);
+            }
+ 
+            blogPostModel.RelatedPosts = this.GetModelsByCategory(currentPage.Parent).
+                Where(x => x.Id != currentPage.Id).Take(3);
+
+            return blogPostModel;
+        }
+
+        private static BlogPostModel GetModel(IPublishedContent currentPage)
+        {
+            return new BlogPostModel
             {
                 Id = currentPage.Id,
                 Title = currentPage.Name,
@@ -38,8 +61,6 @@ namespace TravelBlog.Data
                 Category = currentPage.GetPropertyValue<string>(PostDocumentTypeConsts.Category),
                 BlogPostContent = currentPage.GetPropertyValue<string>(PostDocumentTypeConsts.Content)
             };
-
-            return blogPostModel;
         }
     }
 }

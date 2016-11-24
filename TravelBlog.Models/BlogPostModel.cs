@@ -1,9 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TravelBlog.Models
 {
     public class BlogPostModel : BaseModel
     {
+        public BlogPostModel()
+        {
+            this.RelatedPosts = new List<BlogPostModel>();
+        }
+
         public int Id { get; set; }
         public string Title { get; set; }
         public string Introduction { get; set; }
@@ -13,5 +19,8 @@ namespace TravelBlog.Models
         public string Summary { get; set; }
         public string Category { get; set; }
         public string BlogPostContent { get; set; }
+        public IEnumerable<BlogPostModel> RelatedPosts { get; set; }
+        public BlogPostModel NextPost { get; set; }
+        public BlogPostModel PreviousPost { get; set; }
     }
 }
