@@ -19,7 +19,7 @@ using Umbraco.ModelsBuilder;
 using Umbraco.ModelsBuilder.Umbraco;
 
 [assembly: PureLiveAssembly]
-[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "4892c8aa1f64fc03")]
+[assembly:ModelsBuilderAssembly(PureLive = true, SourceHash = "3236f92d6008d6b3")]
 [assembly:System.Reflection.AssemblyVersion("0.0.0.2")]
 
 namespace Umbraco.Web.PublishedContentModels
@@ -473,6 +473,15 @@ namespace Umbraco.Web.PublishedContentModels
 		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<Category, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Show In Main Navigation
+		///</summary>
+		[ImplementPropertyType("showInMainNavigation")]
+		public bool ShowInMainNavigation
+		{
+			get { return this.GetPropertyValue<bool>("showInMainNavigation"); }
 		}
 	}
 

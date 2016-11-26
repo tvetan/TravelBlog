@@ -2942,8 +2942,8 @@ textarea#jp-carousel-comment-form-comment-field {
 }
 
 .contact-form input[type=text], .contact-form input[type=email] {
-    width: 300px;
-    max-width: 98%;
+    /*width: 300px;*/
+    width: 100%;
     margin-bottom: 13px;
 }
 
@@ -2953,7 +2953,7 @@ textarea#jp-carousel-comment-form-comment-field {
 
 .contact-form textarea {
     height: 200px;
-    width: 80%;
+    /*width: 80%;*/
     float: none;
     margin-bottom: 13px;
 }
@@ -2994,6 +2994,10 @@ textarea#jp-carousel-comment-form-comment-field {
 
 .form-errors .form-error-message {
     color: red;
+}
+
+.contact-form input[type=text], .contact-form input[type=email], .contact-form textarea {
+    padding: 10px;
 }
 
 .textwidget .contact-form input[type=text], .textwidget .contact-form input[type=email], .textwidget .contact-form textarea {
@@ -4939,8 +4943,23 @@ div[class^=gr_custom_tags] {
 }
 
 .notification-error {
-    background-color: #800000;
+    background-color: #de4343;
     color: white;
     text-align: center;
     font-size: x-large;
+}
+
+input.error, textarea.error {
+    border: 1px solid #de4343;
+}
+
+label.error {
+    color:#de4343;
+    margin-left: .3em;
+}
+
+label.valid {
+    display: block;
+    width: 16px;
+    height: 16px;
 }

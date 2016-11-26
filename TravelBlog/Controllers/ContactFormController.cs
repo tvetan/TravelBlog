@@ -15,13 +15,18 @@ namespace TravelBlog.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Submit(ContactRequestModel model)
         {
             if (!ModelState.IsValid)
+            {
+                this.TempData["Error"] = "Not all field are valid";
                 return CurrentUmbracoPage();
+            }
 
-            contactRequestService.CreateContactRequest(model);
+            this.contactRequestService.CreateContactRequest(model);
 
+            this.TempData["Success"] = "Contact form submitted successfully";
             return RedirectToCurrentUmbracoPage();
         }
     }

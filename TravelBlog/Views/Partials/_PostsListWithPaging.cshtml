@@ -22,13 +22,19 @@
     }
 }
 
-@if (posts != null)
+@if (posts != null && posts.Any())
 {
     <div class="article-container" itemscope="itemscope" itemtype="http://schema.org/ItemList">
         @foreach (var post in posts.Skip((page - 1) * pageSize).Take(pageSize))
         {
             Html.RenderPartial("_Post", post);
         }
+    </div>
+}
+else
+{
+    <div>
+        <h3>There are no posts at this moment. Try again later.</h3> 
     </div>
 }
 

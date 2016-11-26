@@ -6,20 +6,28 @@
 }
 
 @using (Html.BeginUmbracoForm<ContactFormController>("Submit", null,
-                                new { @class = "add-comment" }, FormMethod.Post))
+                                                        new { @class = "contact" }, FormMethod.Post))
 {
-    <div>
-        @Html.TextBoxFor(m => m.Name)
-    </div>
-    <div>
-        @Html.TextBoxFor(m => m.Email)
-    </div>
-    <div>
-        @Html.TextBoxFor(m => m.Subject)
-    </div>
-    <div>
-        @Html.TextAreaFor(m => m.Message)
-    </div>
+    @Html.AntiForgeryToken()
 
-    <input type="submit" name="Submit" value="Submit" />
+
+    <div class="col-md-12 contact-form">
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.Name, new { placeholder = "Your name", required = "required" })
+        </div>
+        <div class="col-md-6">
+            @Html.TextBoxFor(m => m.Email, new { placeholder = "Your email", required = "required", email = true })
+        </div>
+
+        <div class="col-md-12">
+            @Html.TextBoxFor(m => m.Subject, new { placeholder = "Subject", required = "required" })
+        </div>
+        <div class="col-md-12">
+            @Html.TextAreaFor(m => m.Message, new { placeholder = "Message", cols = 5, required = "required" })
+        </div>
+
+        <div class="col-md-12">
+            <input type="submit" name="Submit" value="Send" />
+        </div>
+    </div>
 }

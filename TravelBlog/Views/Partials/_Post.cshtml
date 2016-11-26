@@ -7,7 +7,7 @@
                 @if (!string.IsNullOrEmpty(Model.Category))
                 {
                     <p class="cat-item cat-item-38">
-                        <a href="/@Model.Category" title="Posts with @Model.Category as category">@Model.Category</a>
+                        <a href="/@Model.Category.Replace(" ", "-")" title="Posts with @Model.Category as category">@Model.Category</a>
                     </p>
                 }
 
@@ -15,7 +15,10 @@
 
                 <div class="entry-meta">
                     <span class="posted-on">Posted on <a href="@Model.Url" rel="bookmark"><time class="entry-date published" datetime="2015-11-12T07:24:14+00:00">@Model.CreateDate.ToString("MMMM dd, yyyy")
-                        </time><time class="updated" datetime="2015-11-12T14:25:27+00:00">@Model.CreateDate.ToString("MM dd, yyyy")</time></a></span>
+                        </time>
+                        <time class="updated" datetime="2015-11-12T14:25:27+00:00">@Model.CreateDate.ToString("MM dd, yyyy")</time>
+                        </a>
+                    </span>
 
                 </div><!-- .entry-meta -->
             </header><!-- .entry-header -->

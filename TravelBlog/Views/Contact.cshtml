@@ -6,9 +6,28 @@
 
 <div class="container main-content-area">
     <div class="row">
-        @{
-            Html.RenderPartial("~/Views/Partials/_ContactForm.cshtml", new TravelBlog.Models.ContactRequestModel());
-        }
+        <div class="main-content-inner col-sm-12 col-md-8 side-right">
+            <header class="entry-header page-header">
+                <h1 class="entry-title">@Model.Content.Name</h1>
+            </header><!-- .entry-header -->
+            <div id="primary" class="content-area">
 
+                <main id="main" class="site-main" role="main">
+
+                    <div class="post-inner-content">
+                        @{
+                            Html.RenderPartial("~/Views/Partials/_ContactForm.cshtml", new TravelBlog.Models.ContactRequestModel());
+                        }
+                    </div>
+                </main><!-- #main -->
+            </div>
+
+
+        </div><!-- #primary -->
+
+        @{ Html.RenderPartial("_Sidebar"); }
     </div>
+
+
 </div>
+ 

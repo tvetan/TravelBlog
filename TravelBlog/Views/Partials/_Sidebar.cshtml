@@ -93,7 +93,7 @@
                 <!-- image -->
                 <div class="post-image gallery">
 
-                    <a href="https://colorlib.com/activello/post-format-gallery/">
+                    <a href="@post.Url">
                         <img src="@Methods.GetImage(post.GetPropertyValue<int>(PostDocumentTypeConsts.MainImage))?width=80&height=80&mode=crop" class="attachment-thumbnail size-thumbnail wp-post-image"
                              alt="@post.Name" />
                     </a>
