@@ -23,7 +23,17 @@
                                     <h1 class="entry-title">@Model.Title</h1>
 
                                     <div class="entry-meta">
-                                        <span class="posted-on">Posted on <a href="https://colorlib.com/activello/post-format-gallery/" rel="bookmark"><time class="entry-date published" datetime="2015-11-12T07:24:14+00:00">November 12, 2015</time><time class="updated" datetime="2015-11-12T14:25:27+00:00">@Model.CreateDate.ToString("MMMM dd, yyyy")</time></a></span>
+                                        <span class="posted-on">
+                                            Posted on
+                                            <a href="@Model.Url" rel="bookmark">
+                                                <time class="entry-date published" datetime="@Model.CreateDate">
+                                                    @Model.CreateDate.ToString("MMMM dd, yyyy")
+                                                </time>
+                                                <time class="updated" datetime="@Model.CreateDate">
+                                                    @Model.CreateDate.ToString("MMMM dd, yyyy")
+                                                </time>
+                                            </a>
+                                        </span>
 
                                     </div><!-- .entry-meta -->
                                 </header><!-- .entry-header -->
@@ -39,11 +49,62 @@
                                     @Html.Raw(Model.BlogPostContent)
 
 
-                                    <div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-pinterest"><a rel="nofollow" data-shared="sharing-pinterest-555" class="share-pinterest sd-button share-icon" href="https://colorlib.com/activello/post-format-gallery/?share=pinterest&amp;nb=1" target="_blank" title="Click to share on Pinterest"><span>Pinterest</span></a></li><li class="share-linkedin"><a rel="nofollow" data-shared="sharing-linkedin-555" class="share-linkedin sd-button share-icon" href="https://colorlib.com/activello/post-format-gallery/?share=linkedin&amp;nb=1" target="_blank" title="Click to share on LinkedIn"><span>LinkedIn</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-555" class="share-facebook sd-button share-icon" href="https://colorlib.com/activello/post-format-gallery/?share=facebook&amp;nb=1" target="_blank" title="Click to share on Facebook"><span>Facebook<span class="share-count">1</span></span></a></li><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-555" class="share-twitter sd-button share-icon" href="https://colorlib.com/activello/post-format-gallery/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-email share-service-visible"><a rel="nofollow" data-shared="" class="share-email sd-button share-icon" href="https://colorlib.com/activello/post-format-gallery/?share=email&amp;nb=1" target="_blank" title="Click to email this to a friend"><span>Email</span></a></li><li class="share-print"><a rel="nofollow" data-shared="" class="share-print sd-button share-icon" href="https://colorlib.com/activello/post-format-gallery/#print" target="_blank" title="Click to print"><span>Print</span></a></li><li class="share-end"></li></ul></div></div></div>
+                                    <div class="sharedaddy sd-sharing-enabled">
+                                        <div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing">
+                                            <h3 class="sd-title">Share this:</h3>
+                                            <div class="sd-content">
+                                                <ul>
+                                                    <li>
+                                                        <div class="fb-like" data-href="@Model.UrlWithDomain"
+                                                             data-width="10" data-layout="button_count" data-action="like" data-size="small"
+                                                             data-show-faces="false" data-share="false"></div>
+                                                    </li>
+
+                                                    <li class="share-pinterest">
+                                                        <a rel="nofollow" data-shared="sharing-pinterest-555" class="share-pinterest sd-button share-icon"
+                                                           href="@(string.Format("http://www.pinterest.com/pin/create/button/?url={0}&amp;media={1}&amp;description={2}",
+                                                                HttpUtility.UrlEncode(Model.UrlWithDomain), string.Format("{0}{1}", Model.UrlWithDomain.Replace(Model.Url, ""), Model.MainImageUrl), Html.Raw(Model.BlogPostContent)))" target="_blank" title="Click to share on Pinterest">
+                                                            <i class="social_icon fa fa-pinterest">
+                                                                <span>Pinterest</span>
+                                                            </i>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="share-facebook">
+                                                        <a rel="nofollow" data-shared="sharing-facebook-555" class="share-facebook sd-button share-icon" href="@(string.Format("http://www.facebook.com/sharer.php?u={0}", HttpUtility.UrlEncode(Model.UrlWithDomain)))" target="_blank" title="Click to share on Facebook">
+
+                                                            <i class="social_icon fa fa-facebook">
+                                                                <span>Facebook</span>
+                                                            </i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="share-twitter">
+                                                        <a rel="nofollow" data-shared="sharing-twitter-555" class="share-twitter sd-button share-icon" href="@(string.Format("http://twitter.com/share?url={0}&amp;text={1}", HttpUtility.UrlEncode(Model.UrlWithDomain), Model.Title))" target="_blank" title="Click to share on Twitter">
+
+                                                            <i class="social_icon fa fa-twitter">
+                                                                <span>Twitter</span>
+                                                            </i>
+                                                        </a>
+                                                    </li>
+
+                                                    <li class="share-print">
+                                                        <a rel="nofollow" data-shared="" class="print sd-button share-icon" href="javascript:void(0)" target="_blank" title="Click to print">
+
+                                                            <i class="social_icon fa fa-print">
+                                                                <span>Print</span>
+                                                            </i>
+                                                        </a>
+                                                    </li>
+                                                    <li class="share-end">
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
 
 
                                     @if (Model.RelatedPosts.Any())
-	                                {
+                                    {
                                         <div id="jp-relatedposts" class="jp-relatedposts" style="display: block;">
                                             <h3 class="jp-relatedposts-headline"><em>Related</em></h3>
                                             <div class="jp-relatedposts-items jp-relatedposts-items-visual">
@@ -52,7 +113,7 @@
                                                 {
                                                     <div class="jp-relatedposts-post jp-relatedposts-post0 jp-relatedposts-post-thumbs" data-post-id="1011" data-post-format="false">
                                                         <a class="jp-relatedposts-post-a" href="@post.Url" title="@post.Title" data-origin="555" data-position="0">
-                                                            <img class="jp-relatedposts-post-img" src="@post.MainImageUrl" width="213" alt="@post.Title main image" height="121"  scale="1.5">
+                                                            <img class="jp-relatedposts-post-img" src="@post.MainImageUrl" width="213" alt="@post.Title main image" height="121" scale="1.5">
                                                         </a>
                                                         <h4 class="jp-relatedposts-post-title">
                                                             <a class="jp-relatedposts-post-a" href="@post.Url" title="@post.Title" data-origin="555" data-position="0">
@@ -85,24 +146,24 @@
                         <div class="nav-links">
 
                             @if (Model.PreviousPost != null)
-	                        {
+                            {
                                 <div class="nav-previous">
                                     <a href="@Model.PreviousPost.Url" rel="prev">
-                                        <i class="fa fa-chevron-left"></i> 
+                                        <i class="fa fa-chevron-left"></i>
                                         @Model.PreviousPost.Title
                                     </a>
                                 </div>
-	                        }
+                            }
 
                             @if (Model.NextPost != null)
-	                        {
+                            {
                                 <div class="nav-next">
                                     <a href="@Model.NextPost.Url" rel="next">
                                         @Model.NextPost.Title
                                         <i class="fa fa-chevron-right"></i>
                                     </a>
                                 </div>
-	                        }
+                            }
                         </div><!-- .nav-links -->
                     </nav>
 
@@ -110,21 +171,23 @@
             </div><!-- #primary -->
             <div id="disqus_thread"></div>
             <script>
-                /**
-                *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
-                /*
-                var disqus_config = function () {
-                this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                };
-                */
 
+                var disqus_config = function () {
+                    this.page.url = "@Model.UrlWithDomain";
+                    this.page.identifier = "@Model.Id";
+                };
+
+                (function () { // DON'T EDIT BELOW THIS LINE
+                    var d = document, s = d.createElement('script');
+                    s.src = '//http-traveladdiction-net.disqus.com/embed.js';
+                    s.setAttribute('data-timestamp', +new Date());
+                    (d.head || d.body).appendChild(s);
+                })();
             </script>
             <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
         </div>
 
         @{Html.RenderPartial("_Sidebar"); }
-    </div>
+    </div><!-- close .*-inner (main-content or sidebar, depending if sidebar is used) -->
 </div>

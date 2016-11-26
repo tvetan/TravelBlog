@@ -23,5 +23,6 @@ namespace TravelBlog.Models
         public BlogPostModel NextPost { get; set; }
         public BlogPostModel PreviousPost { get; set; }
         public bool ShowInSlider { get; set; }
+        public string UrlWithDomain { get; set; }
     }
 }

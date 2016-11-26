@@ -58,7 +58,8 @@ namespace TravelBlog.Data
                 Summary = currentPage.GetPropertyValue<string>(PostDocumentTypeConsts.Summary),
                 MainImageUrl = Methods.GetImage(currentPage.GetPropertyValue<int>(PostDocumentTypeConsts.MainImage)),
                 Category = currentPage.GetPropertyValue<string>(PostDocumentTypeConsts.Category),
-                BlogPostContent = currentPage.GetPropertyValue<string>(PostDocumentTypeConsts.Content)
+                BlogPostContent = currentPage.GetPropertyValue<string>(PostDocumentTypeConsts.Content),
+                UrlWithDomain = currentPage.UrlWithDomain()
             };
         }
     }

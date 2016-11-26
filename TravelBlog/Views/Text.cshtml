@@ -4,16 +4,13 @@
     Layout = "Master.cshtml";
 }
 
-<div class="container main-content-area">
+<div class="container main-content-area page">
     <div class="row">
         <div class="main-content-inner col-sm-12 col-md-8 side-right">
 
             <div id="primary" class="content-area">
 
                 <main id="main" class="site-main" role="main">
-
-
-
 
                     <div class="post-inner-content">
                         <article id="post-146" class="post-146 page type-page status-publish hentry">
@@ -22,7 +19,7 @@
                             </header><!-- .entry-header -->
 
                             <div class="entry-content">
-                               @Html.Raw(Model.Content)
+                                @Html.Raw(Model.Content)
                             </div><!-- .entry-content -->
                         </article><!-- #post-## -->
                     </div>
@@ -33,6 +30,6 @@
 
         </div>
 
-       @{ Html.RenderPartial("_Sidebar"); }
-    </div> 
+        @{ Html.RenderPartial("_Sidebar"); }
+    </div>
 </div>
