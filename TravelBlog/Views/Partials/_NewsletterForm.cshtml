@@ -1,0 +1,69 @@
+﻿@inherits UmbracoViewPage<NewsletterModel>
+@using TravelBlog.Controllers.SurfaceControllers;
+
+<aside id="blog_subscription-2" class="widget jetpack_subscription_widget">
+    <h3 class="widget-title">Subscribe to TravelAddiction via Email</h3>
+    @using (Html.BeginUmbracoForm<NewsletteSurfaceController>("Subscribe", null,
+                            new { @class = "mc4wp-form mc4wp-form-basic" }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div id="subscribe-text">
+            <p>Enter your email address to subscribe to this blog and receive notifications of new posts by email.</p>
+        </div>
+            @*<p>Join 5 other subscribers</p>*@
+            <p id="subscribe-email">
+                <label id="jetpack-subscribe-label" style="clip: rect(1px 1px 1px 1px); position: absolute; height: 1px; width: 1px; overflow: hidden;">
+                    Email Address
+                </label>
+                <input type="email" name="email" required="required" class="required" value="" placeholder="Email Address">
+            </p>
+
+            <p id="subscribe-submit">
+                @*<input type="hidden" name="action" value="subscribe">
+                    <input type="hidden" name="source" value="https://colorlib.com/activello/">
+                    <input type="hidden" name="sub-type" value="widget">
+                    <input type="hidden" name="redirect_fragment" value="blog_subscription-2">*@
+                <input type="submit" value="Subscribe">
+            </p>
+    }
+
+    @*<script>
+                /*
+                Custom functionality for safari and IE
+                 */
+                (function (d) {
+                    // In case the placeholder functionality is available we remove labels
+                    if (('placeholder' in d.createElement('input'))) {
+                        var label = d.querySelector('label[for=subscribe-field-blog_subscription-2]');
+                        label.style.clip = 'rect(1px, 1px, 1px, 1px)';
+                        label.style.position = 'absolute';
+                        label.style.height = '1px';
+                        label.style.width = '1px';
+                        label.style.overflow = 'hidden';
+                    }
+
+                    // Make sure the email value is filled in before allowing submit
+                    var form = d.getElementById('subscribe-blog-blog_subscription-2'),
+                        input = d.getElementById('subscribe-field-blog_subscription-2'),
+                        handler = function (event) {
+                            if ('' === input.value) {
+                                input.focus();
+
+                                if (event.preventDefault) {
+                                    event.preventDefault();
+                                }
+
+                                return false;
+                            }
+                        };
+
+                    if (window.addEventListener) {
+                        form.addEventListener('submit', handler, false);
+                    } else {
+                        form.attachEvent('onsubmit', handler);
+                    }
+                })(document);
+        </script>*@
+
+</aside>

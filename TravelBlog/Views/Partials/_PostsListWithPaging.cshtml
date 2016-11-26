@@ -1,0 +1,52 @@
+﻿@inherits UmbracoViewPage<BaseModel>
+@{
+    var pageSize = 5;
+    var page = 1;
+    int.TryParse(Request.QueryString["page"], out page);
+    var posts= ViewData["Items"] as List<BlogPostModel>;
+
+    var totalPages = 1;
+
+    if (posts != null)
+    {
+        totalPages = (int)Math.Ceiling((double)posts.Count() / (double)pageSize);
+    }
+
+    if (page > totalPages)
+    {
+        page = totalPages;
+    }
+    else if (page < 1)
+    {
+        page = 1;
+    }
+}
+
+@if (posts != null)
+{
+    <div class="article-container" itemscope="itemscope" itemtype="http://schema.org/ItemList">
+        @foreach (var post in posts.Skip((page - 1) * pageSize).Take(pageSize))
+        {
+            Html.RenderPartial("_Post", post);
+        }
+    </div>
+}
+
+@if (totalPages > 1)
+{
+    <nav class="navigation paging-navigation" role="navigation">
+        <h1 class="screen-reader-text">Posts navigation</h1>
+        <div class="nav-links">
+            @if (page < totalPages)
+            {
+                <div class="nav-previous"><a href="?page=@(page + 1)">Older posts</a> </div>
+            }
+
+            @if (page > 1)
+            {
+                <div class="nav-next"> <a href="?page=@(page - 1)">Newer posts</a></div>
+            }
+
+        </div>
+    </nav>
+}

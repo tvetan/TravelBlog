@@ -22,5 +22,6 @@ namespace TravelBlog.Models
         public IEnumerable<BlogPostModel> RelatedPosts { get; set; }
         public BlogPostModel NextPost { get; set; }
         public BlogPostModel PreviousPost { get; set; }
+        public bool ShowInSlider { get; set; }
     }
 }

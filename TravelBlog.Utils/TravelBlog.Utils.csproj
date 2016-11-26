@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consts\DocumentTypesConsts.cs" />
+    <Compile Include="Consts\NewsletterTypeConsts.cs" />
     <Compile Include="Consts\TextDocumentTypeConsts.cs" />
     <Compile Include="Consts\HomeDocumentTypeConsts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

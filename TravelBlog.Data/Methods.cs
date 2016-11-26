@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using TravelBlog.Data;
-using Umbraco.Core;
 using Umbraco.Core.Models;
 using Umbraco.Web;
 
@@ -58,7 +53,7 @@ namespace TravelBlog.Data
 
         public static string TruncateHtml(this string html)
         {
-            return Methods.TruncateHtml(html, int.MaxValue);
+            return TruncateHtml(html, int.MaxValue);
         }
 
         /// <summary>
@@ -89,10 +84,7 @@ namespace TravelBlog.Data
                     textCount++;
                 }
 
-                if (c == '>')
-                {
-                    ignore = false;
-                }
+                ignore &= c != '>';
 
                 // stop once we hit the limit
                 if (textCount >= maxCharacters)
@@ -189,10 +181,10 @@ namespace TravelBlog.Data
 
         public static List<string> ExtractFromHtml(string text)
         {
-            List<string> words = new List<string>();
+            var words = new List<string>();
 
-            int firstChar = text.IndexOf('>');
-            int secondChar = text.IndexOf('<');
+            var firstChar = text.IndexOf('>');
+            var secondChar = text.IndexOf('<');
 
             // we begin from second occurrence of '<'
             secondChar = text.IndexOf('<', secondChar + 1);
@@ -207,7 +199,7 @@ namespace TravelBlog.Data
                 }
                 else
                 {
-                    string word = text.Substring(firstChar + 1, (secondChar - 1) - (firstChar));
+                    var word = text.Substring(firstChar + 1, (secondChar - 1) - (firstChar));
 
                     if (word != "\n" && word != "\r\n" && !string.IsNullOrEmpty(word))
                     {
@@ -224,10 +216,10 @@ namespace TravelBlog.Data
 
         public static string ExtractFromHtmlAsOneText(string text)
         {
-            StringBuilder alltext = new StringBuilder();
+            var alltext = new StringBuilder();
 
-            int firstChar = text.IndexOf('>');
-            int secondChar = text.IndexOf('<');
+            var firstChar = text.IndexOf('>');
+            var secondChar = text.IndexOf('<');
 
             // we begin from second occurrence of '<'
             secondChar = text.IndexOf('<', secondChar + 1);
@@ -242,7 +234,7 @@ namespace TravelBlog.Data
                 }
                 else
                 {
-                    string word = text.Substring(firstChar + 1, (secondChar - 1) - (firstChar));
+                    var word = text.Substring(firstChar + 1, (secondChar - 1) - (firstChar));
 
                     if (word != "\n" && word != "\r\n" && !string.IsNullOrEmpty(word))
                     {

@@ -14,11 +14,10 @@ namespace TravelBlog.Controllers.SurfaceControllers
         {
             if (model.SearchedText == null)
             {
-                return RedirectToUmbracoPage(model.HomePage.Descendant(DocumentTypesConsts.SearchResult));
+                return this.RedirectToUmbracoPage(model.HomePage.Descendant(DocumentTypesConsts.SearchResult));
             }
 
             var result = Umbraco.TypedSearch(model.SearchedText).ToList();
-
 
             var posts = result.Where(x => x.ContentType.Alias == DocumentTypesConsts.BlogPost)
                 .Select(x => new BlogPostModel
@@ -33,10 +32,10 @@ namespace TravelBlog.Controllers.SurfaceControllers
                 });
 
 
-            TempData["SearchResult"] = posts;
-            TempData["SearchedText"] = model.SearchedText;
+            this.TempData["SearchResult"] = posts;
+            this.TempData["SearchedText"] = model.SearchedText;
 
-            return RedirectToUmbracoPage(model.HomePage.Descendant(DocumentTypesConsts.SearchResult));
+            return this.RedirectToUmbracoPage(model.HomePage.Descendant(DocumentTypesConsts.SearchResult));
         }
     }
 }

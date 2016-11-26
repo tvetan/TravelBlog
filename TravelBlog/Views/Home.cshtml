@@ -4,45 +4,39 @@
     Layout = "Master.cshtml";
 }
 <div class="top-section">
-    <div class="flexslider" style="height: 396px;">
-        <ul class="slides">
-            <li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;" class="flex-active-slide" data-thumb-alt="">
-                <img width="1920" height="550" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-1920x550.jpg" class="attachment-activello-slider size-activello-slider wp-post-image" alt="photo-1437915015400-137312b61975" scale="0" draggable="false"><div class="flex-caption">
-                    <ul class="post-categories">
-                        <li><a href="https://colorlib.com/activello/category/template-2/" rel="category tag">Template</a></li>
-                    </ul><a href="https://colorlib.com/activello/template-featured-image-vertical/"><h2 class="entry-title">Template: Featured Image (No Sidebar Layout)</h2></a><div class="read-more"><a href="https://colorlib.com/activello/template-featured-image-vertical/">Read More</a></div>
-                </div>
-            </li>
-            <li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;" data-thumb-alt="">
-                <img width="1920" height="550" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/photo-1431578500526-4d9613015464-1920x550.jpg" class="attachment-activello-slider size-activello-slider wp-post-image" alt="photo-1431578500526-4d9613015464" scale="0" draggable="false"><div class="flex-caption">
-                    <ul class="post-categories">
-                        <li><a href="https://colorlib.com/activello/category/template-2/" rel="category tag">Template</a></li>
-                    </ul><a href="https://colorlib.com/activello/template-featured-image-horizontal/"><h2 class="entry-title">Template: Featured Image (Full Width No Sidebar Layout)</h2></a><div class="read-more"><a href="https://colorlib.com/activello/template-featured-image-horizontal/">Read More</a></div>
-                </div>
-            </li>
-            <li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;" data-thumb-alt="">
-                <img width="1920" height="550" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/oIpwxeeSPy1cnwYpqJ1w_Dufer-Collateral-test-1920x550.jpg" class="attachment-activello-slider size-activello-slider wp-post-image" alt="oIpwxeeSPy1cnwYpqJ1w_Dufer-Collateral-test" scale="0" draggable="false"><div class="flex-caption">
-                    <ul class="post-categories">
-                        <li><a href="https://colorlib.com/activello/category/template-2/" rel="category tag">Template</a></li>
-                    </ul><a href="https://colorlib.com/activello/template-more-tag/"><h2 class="entry-title">Template: More Tag</h2></a><div class="read-more"><a href="https://colorlib.com/activello/template-more-tag/">Read More</a></div>
-                </div>
-            </li>
-            <li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;" data-thumb-alt="">
-                <img width="1920" height="550" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/16386149745_f56818fbd4_o-1920x550.jpg" class="attachment-activello-slider size-activello-slider wp-post-image" alt="16386149745_f56818fbd4_o" scale="0" draggable="false"><div class="flex-caption">
-                    <ul class="post-categories">
-                        <li><a href="https://colorlib.com/activello/category/template-2/" rel="category tag">Template</a></li>
-                    </ul><a href="https://colorlib.com/activello/template-excerpt-defined/"><h2 class="entry-title">Template: Excerpt (Defined)</h2></a><div class="read-more"><a href="https://colorlib.com/activello/template-excerpt-defined/">Read More</a></div>
-                </div>
-            </li>
-            <li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: 1;" data-thumb-alt="">
-                <img width="1920" height="550" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2015/11/119H-1920x550.jpg" class="attachment-activello-slider size-activello-slider wp-post-image" alt="119H" scale="0" draggable="false"><div class="flex-caption">
-                    <ul class="post-categories">
-                        <li><a href="https://colorlib.com/activello/category/template-2/" rel="category tag">Template</a></li>
-                    </ul><a href="https://colorlib.com/activello/template-comments/"><h2 class="entry-title">Template: Comments</h2></a><div class="read-more"><a href="https://colorlib.com/activello/template-comments/">Read More</a></div>
-                </div>
-            </li>
-        </ul> <ol class="flex-control-nav flex-control-paging"><li><a href="#" class="flex-active">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#">4</a></li><li><a href="#">5</a></li></ol><ul class="flex-direction-nav"><li class="flex-nav-prev"><a class="flex-prev" href="#"></a></li><li class="flex-nav-next"><a class="flex-next" href="#"></a></li></ul>
-    </div>
+    @if (Model.SliderBlogPosts.Any())
+    {
+        <div class="flexslider" style="height: 396px;">
+            <ul class="slides">
+                @foreach (var sliderPost in Model.SliderBlogPosts)
+                {
+                    <li>
+                        <img src="@sliderPost.MainImageUrl" class="attachment-activello-slider size-activello-slider wp-post-image" alt="@sliderPost.Title slider image" scale="0" draggable="false">
+                        <div class="flex-caption">
+                            <ul class="post-categories">
+                                <li><a href="/@sliderPost.Category" rel="category tag">@sliderPost.Category</a></li>
+                            </ul>
+                            <a href="@sliderPost.Url">
+                                <h2 class="entry-title">@sliderPost.Title</h2>
+                            </a>
+                            <div class="read-more">
+                                <a href="@sliderPost.Url">Read More</a>
+                            </div>
+                        </div>
+                    </li>
+
+                }
+            </ul>
+            <ul class="flex-direction-nav">
+                <li class="flex-nav-prev">
+                    <a class="flex-prev" href="#"></a>
+                </li>
+                <li class="flex-nav-next">
+                    <a class="flex-next" href="#"></a>
+                </li>
+            </ul>
+        </div>
+    }
 </div>
 
 <div class="container main-content-area">
@@ -53,25 +47,10 @@
 
                 <main id="main" class="site-main page-1" role="main">
 
-
-                    <div class="article-container">
-
-                        @foreach (var post in Model.AllBlogPosts)
-                        {
-                            Html.RenderPartial("_Post", post);
-                        }
-                    </div>
-
-                    <nav class="navigation paging-navigation" role="navigation">
-                        <h1 class="screen-reader-text">Posts navigation</h1>
-                        <div class="nav-links">
-
-                            <div class="nav-previous"> <a href="https://colorlib.com/activello/page/2/">Older posts</a></div>
-
-
-                        </div><!-- .nav-links -->
-                    </nav><!-- .navigation -->
-
+                    @{ Html.RenderPartial("_PostsListWithPaging", new BaseModel(), new ViewDataDictionary()
+                    {
+                       { "Items", Model.AllBlogPosts }
+                    }); }
 
                 </main><!-- #main -->
             </div><!-- #primary -->

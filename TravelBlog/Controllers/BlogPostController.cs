@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using TravelBlog.Data;
-using TravelBlog.Models;
-using Umbraco.Core.Models;
 using Umbraco.Web.Mvc;
 
 namespace TravelBlog.Controllers
@@ -16,7 +10,6 @@ namespace TravelBlog.Controllers
 
         public BlogPostController()
         {
-           
             this.BlogPostsService = new BlogPostsService();
         }
 

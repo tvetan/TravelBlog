@@ -1,10 +1,12 @@
 ﻿namespace TravelBlog.Utils.Consts
 {
-    public class PostDocumentTypeConsts
+    public static class PostDocumentTypeConsts
     {
         public const string Summary = "summary";
 
         public const string Category = "category";
+
+        public const string ShowInSlider = "showInSlider";
 
         public const string MainImage = "mainImage";
 

@@ -36,7 +36,9 @@
                 <p><img src="@aboutUsImage" alt="@aboutUsTitle" scale="0"></p>
                 <p>@Html.Raw(aboutUsText) </p>
             </div>
-        </aside><aside id="activello-social-2" class="widget activello-social">
+        </aside>
+
+        <aside id="activello-social-2" class="widget activello-social">
             <h3 class="widget-title">Follow Me</h3>
             <!-- social icons -->
             <div class="social-icons sticky-sidebar-social">
@@ -50,7 +52,7 @@
                             </a>
                         </li>
                         <li id="menu-item-1735" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1735">
-                            <a href="@twitterLink" onclick=">
+                            <a href="@twitterLink" onclick="">
                                 <i class="social_icon fa">
                                     <span>Twitter</span>
                                 </i>
@@ -77,8 +79,8 @@
 
             </div><!-- end social icons -->
 
-
         </aside>
+
         <aside id="activello_recent_posts-2" class="widget activello-recent-posts">
             <h3 class="widget-title">Recent Posts</h3>
             <!-- recent posts -->
@@ -86,34 +88,32 @@
 
                 @foreach (var post in latestPosts)
                 {
-                    <div class="post">
+            <div class="post">
 
-                        <!-- image -->
-                        <div class="post-image gallery">
+                <!-- image -->
+                <div class="post-image gallery">
 
-                            <a href="https://colorlib.com/activello/post-format-gallery/">
-                                <img src="@Methods.GetImage(post.GetPropertyValue<int>(PostDocumentTypeConsts.MainImage))" class="attachment-thumbnail size-thumbnail wp-post-image"
-                                     alt="@post.Name" />
+                    <a href="https://colorlib.com/activello/post-format-gallery/">
+                        <img src="@Methods.GetImage(post.GetPropertyValue<int>(PostDocumentTypeConsts.MainImage))?width=80&height=80&mode=crop" class="attachment-thumbnail size-thumbnail wp-post-image"
+                             alt="@post.Name" />
+                    </a>
 
-                            </a>
+                </div> <!-- end post image -->
+                <!-- content -->
+                <div class="post-content">
 
-                        </div> <!-- end post image -->
-                        <!-- content -->
-                        <div class="post-content">
+                    <a href="@post.Url">@post.Name</a>
+                    <span class="date">- @post.CreateDate.ToString("dd MMM, yyyy")</span>
 
-                            <a href="@post.Url">@post.Name</a>
-                            <span class="date">- @post.CreateDate.ToString("dd MMM, yyyy")</span>
-
-                        </div><!-- end content -->
-                    </div><!-- end post -->
+                </div><!-- end content -->
+            </div><!-- end post -->
                 }
 
             </div> <!-- end posts wrapper -->
 
         </aside><aside id="search-2" class="widget widget_search">
 
-
-            @{Html.RenderPartial("_SidebarSearchForm", new SimpleSearchModel());}
+            @{ Html.RenderPartial("_SidebarSearchForm", new SimpleSearchModel()); }
 
         </aside>
         <aside id="activello-cats-2" class="widget activello-cats">
@@ -133,67 +133,11 @@
 
             </div><!-- end widget content -->
 
-        </aside><aside id="blog_subscription-2" class="widget jetpack_subscription_widget">
-            <h3 class="widget-title">Subscribe to Blog via Email</h3>
-            <form action="#" method="post" accept-charset="utf-8" id="subscribe-blog-blog_subscription-2">
-                <div id="subscribe-text">
-                    <p>Enter your email address to subscribe to this blog and receive notifications of new posts by email.</p>
-                </div><p>Join 5 other subscribers</p>
-                <p id="subscribe-email">
-                    <label id="jetpack-subscribe-label" for="subscribe-field-blog_subscription-2" style="clip: rect(1px 1px 1px 1px); position: absolute; height: 1px; width: 1px; overflow: hidden;">
-                        Email Address
-                    </label>
-                    <input type="email" name="email" required="required" class="required" value="" id="subscribe-field-blog_subscription-2" placeholder="Email Address">
-                </p>
+        </aside>
 
-                <p id="subscribe-submit">
-                    <input type="hidden" name="action" value="subscribe">
-                    <input type="hidden" name="source" value="https://colorlib.com/activello/">
-                    <input type="hidden" name="sub-type" value="widget">
-                    <input type="hidden" name="redirect_fragment" value="blog_subscription-2">
-                    <input type="submit" value="Subscribe" name="jetpack_subscriptions_widget">
-                </p>
-            </form>
+        @{Html.RenderPartial("_NewsletterForm", new NewsletterModel());}
 
-            <script>
-                /*
-                Custom functionality for safari and IE
-                 */
-                (function (d) {
-                    // In case the placeholder functionality is available we remove labels
-                    if (('placeholder' in d.createElement('input'))) {
-                        var label = d.querySelector('label[for=subscribe-field-blog_subscription-2]');
-                        label.style.clip = 'rect(1px, 1px, 1px, 1px)';
-                        label.style.position = 'absolute';
-                        label.style.height = '1px';
-                        label.style.width = '1px';
-                        label.style.overflow = 'hidden';
-                    }
-
-                    // Make sure the email value is filled in before allowing submit
-                    var form = d.getElementById('subscribe-blog-blog_subscription-2'),
-                        input = d.getElementById('subscribe-field-blog_subscription-2'),
-                        handler = function (event) {
-                            if ('' === input.value) {
-                                input.focus();
-
-                                if (event.preventDefault) {
-                                    event.preventDefault();
-                                }
-
-                                return false;
-                            }
-                        };
-
-                    if (window.addEventListener) {
-                        form.addEventListener('submit', handler, false);
-                    } else {
-                        form.attachEvent('onsubmit', handler);
-                    }
-                })(document);
-            </script>
-
-        </aside><aside id="text-3" class="widget widget_text">
+        <aside id="text-3" class="widget widget_text">
             <h3 class="widget-title">Follow Me on Instagram</h3>
             <div class="textwidget">
                 <iframe src="https://snapwidget.com/embed/290089" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:330px; height:330px "></iframe>

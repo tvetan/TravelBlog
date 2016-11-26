@@ -9,7 +9,7 @@ namespace TravelBlog.Data
     {
         public TextModel GetModel(IPublishedContent currentPage)
         {
-            TextModel model = new TextModel();
+            var model = new TextModel();
 
             model.Id = currentPage.Id;
             model.Title = currentPage.Name;

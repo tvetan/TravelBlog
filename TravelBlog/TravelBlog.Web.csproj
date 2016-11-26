@@ -352,6 +352,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
+    <Content Include="robots.txt" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <Content Include="fonts\fontawesome-webfont.eot" />
@@ -2996,6 +2997,9 @@
     <Content Include="Views\SearchResult.cshtml" />
     <Content Include="Views\Partials\_SearchForm.cshtml" />
     <Content Include="Views\Partials\_SidebarSearchForm.cshtml" />
+    <Content Include="Views\Sitemap.cshtml" />
+    <Content Include="Views\Partials\_PostsListWithPaging.cshtml" />
+    <Content Include="Views\Partials\_NewsletterForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -3039,6 +3043,7 @@
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactFormController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\SurfaceControllers\NewsletteSurfaceController.cs" />
     <Compile Include="Controllers\SurfaceControllers\SimpleSearchSurfaceController.cs" />
     <Compile Include="Controllers\TextController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

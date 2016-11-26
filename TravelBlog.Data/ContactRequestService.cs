@@ -6,7 +6,7 @@ namespace TravelBlog.Data
 {
     public class ContactRequestService
     {
-        private IContentService contentService;
+        private readonly IContentService contentService;
 
         public ContactRequestService(IContentService contentService)
         {

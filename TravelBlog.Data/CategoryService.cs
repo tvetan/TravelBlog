@@ -19,7 +19,7 @@ namespace TravelBlog.Data
 
         public CategoryModel GetModel(IPublishedContent currentPage)
         {
-            CategoryModel model = new CategoryModel();
+            var model = new CategoryModel();
             model.AllBlogPosts = this.BlogPostsService.GetModelsByCategory(currentPage);
 
             return model;

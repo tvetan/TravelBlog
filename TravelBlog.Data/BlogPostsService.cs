@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using TravelBlog.Models;
 using TravelBlog.Utils.Consts;
@@ -28,7 +27,7 @@ namespace TravelBlog.Data
 
         public BlogPostModel GetModel(IPublishedContent currentPage, UmbracoHelper umbraco)
         {
-            BlogPostModel blogPostModel = GetModel(currentPage);
+            var blogPostModel = GetModel(currentPage);
 
             if (currentPage.HasValue("nextpost"))
             {

@@ -22,10 +22,13 @@ namespace TravelBlog.Data
                    CreateDate = x.CreateDate,
                    Summary = x.GetPropertyValue<string>(PostDocumentTypeConsts.Summary),
                    MainImageUrl = Methods.GetImage(x.GetPropertyValue<int>(PostDocumentTypeConsts.MainImage)),
-                   Category = x.GetPropertyValue<string>(PostDocumentTypeConsts.Category)
+                   Category = x.GetPropertyValue<string>(PostDocumentTypeConsts.Category),
+                   ShowInSlider = x.GetPropertyValue<bool>(PostDocumentTypeConsts.ShowInSlider)
                })
                .OrderByDescending(x => x.CreateDate)
                .ToList();
+
+            model.SliderBlogPosts = model.AllBlogPosts.Where(x => x.ShowInSlider).ToList();
 
             return model;
         }

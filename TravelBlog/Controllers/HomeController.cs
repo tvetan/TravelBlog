@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using TravelBlog.Data;
 using Umbraco.Web.Models;
 using Umbraco.Web.Mvc;
@@ -11,7 +7,7 @@ namespace TravelBlog.Controllers
 {
     public class HomeController : RenderMvcController
     {
-        private HomeService homeService;
+        private readonly HomeService homeService;
 
         public HomeController()
         {
@@ -20,9 +16,9 @@ namespace TravelBlog.Controllers
 
         public ActionResult Home(RenderModel model)
         {
-            var homeModel = homeService.GetModel(model.Content);
+            var homeModel = this.homeService.GetModel(model.Content);
 
-            return CurrentTemplate(homeModel);
+            return this.CurrentTemplate(homeModel);
         }
     }
 }
