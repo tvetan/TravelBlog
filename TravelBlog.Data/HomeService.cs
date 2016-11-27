@@ -20,6 +20,7 @@ namespace TravelBlog.Data
                    Title = x.Name,
                    Url = x.Url,
                    CreateDate = x.CreateDate,
+                   ModifiedDate = x.UpdateDate,
                    Summary = x.GetPropertyValue<string>(PostDocumentTypeConsts.Summary),
                    MainImageUrl = Methods.GetImage(x.GetPropertyValue<int>(PostDocumentTypeConsts.MainImage)),
                    Category = x.GetPropertyValue<string>(PostDocumentTypeConsts.Category),

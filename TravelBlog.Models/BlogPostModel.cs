@@ -24,5 +24,6 @@ namespace TravelBlog.Models
         public BlogPostModel PreviousPost { get; set; }
         public bool ShowInSlider { get; set; }
         public string UrlWithDomain { get; set; }
+        public DateTime ModifiedDate { get; set; }
     }
 }

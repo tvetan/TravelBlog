@@ -21,8 +21,11 @@ namespace TravelBlog.Data
                     CreateDate = x.CreateDate,
                     Summary = x.GetPropertyValue<string>(PostDocumentTypeConsts.Summary),
                     MainImageUrl = Methods.GetImage(x.GetPropertyValue<int>(PostDocumentTypeConsts.MainImage)),
-                    Category = x.GetPropertyValue<string>(PostDocumentTypeConsts.Category)
-                }).OrderByDescending(x => x.CreateDate).ToList();
+                    Category = x.GetPropertyValue<string>(PostDocumentTypeConsts.Category),
+                    ModifiedDate = currentPage.UpdateDate
+                })
+                .OrderByDescending(x => x.CreateDate)
+                .ToList();
         }
 
         public BlogPostModel GetModel(IPublishedContent currentPage, UmbracoHelper umbraco)
@@ -38,9 +41,9 @@ namespace TravelBlog.Data
             if (currentPage.HasValue("previouspost"))
             {
                 var node = umbraco.TypedContent(currentPage.GetPropertyValue<int>("previouspost"));
-                blogPostModel.PreviousPost= GetModel(node);
+                blogPostModel.PreviousPost = GetModel(node);
             }
- 
+
             blogPostModel.RelatedPosts = this.GetModelsByCategory(currentPage.Parent).
                 Where(x => x.Id != currentPage.Id).Take(3);
 
@@ -59,7 +62,8 @@ namespace TravelBlog.Data
                 MainImageUrl = Methods.GetImage(currentPage.GetPropertyValue<int>(PostDocumentTypeConsts.MainImage)),
                 Category = currentPage.GetPropertyValue<string>(PostDocumentTypeConsts.Category),
                 BlogPostContent = currentPage.GetPropertyValue<string>(PostDocumentTypeConsts.Content),
-                UrlWithDomain = currentPage.UrlWithDomain()
+                UrlWithDomain = currentPage.UrlWithDomain(),
+                ModifiedDate = currentPage.UpdateDate
             };
         }
     }

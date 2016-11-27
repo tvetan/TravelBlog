@@ -30,6 +30,7 @@ namespace TravelBlog.Bundle
                     "~/js/skip-link-focus-fix.js",
                     "~/js/jquery.validate.min.js",
                     "~/js/flexslider.min.js",
+                    "~/js/bootstrap.min.js",
                     "~/js/functions.min.js"
                 );
 

@@ -1,7 +1,7 @@
 ﻿@inherits UmbracoViewPage<BlogPostModel>
 
-<article id="post-555" class="post-555 post type-post status-publish format-gallery has-post-thumbnail hentry category-post-formats tag-gallery tag-post-formats tag-shortcode post_format-post-format-gallery">
-    <div class="blog-item-wrap">
+<article itemprop="itemListElement" itemscope="itemscope" itemtype="http://schema.org/ListItem" class="post type-post status-publish format-gallery has-post-thumbnail hentry category-post-formats tag-gallery tag-post-formats tag-shortcode post_format-post-format-gallery">
+    <div itemprop="item" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" class="blog-item-wrap">
         <div class="post-inner-content">
             <header class="entry-header page-header">
                 @if (!string.IsNullOrEmpty(Model.Category))
@@ -11,12 +11,21 @@
                     </p>
                 }
 
-                <h2 class="entry-title"><a href="@Model.Url" rel="bookmark">@Model.Title</a></h2>
+                <h2 class="entry-title" itemprop="name">
+                    <a href="@Model.Url" rel="bookmark">
+                        @Model.Title
+                    </a>
+                </h2>
 
                 <div class="entry-meta">
-                    <span class="posted-on">Posted on <a href="@Model.Url" rel="bookmark"><time class="entry-date published" datetime="2015-11-12T07:24:14+00:00">@Model.CreateDate.ToString("MMMM dd, yyyy")
-                        </time>
-                        <time class="updated" datetime="2015-11-12T14:25:27+00:00">@Model.CreateDate.ToString("MM dd, yyyy")</time>
+                    <span class="posted-on">
+                        Posted on <a href="@Model.Url" rel="bookmark">
+                            <time itemprop="datePublished" class="entry-date published" datetime="@Model.CreateDate.ToString("yyyy-MM-dd")">
+                                @Model.CreateDate.ToString("MMMM dd, yyyy")
+                            </time>
+                            <time itemprop="dateModified" class="updated" datetime="@Model.ModifiedDate.ToString("yyyy-MM-dd")">
+                                @Model.ModifiedDate.ToString("MMMM dd, yyyy")
+                            </time>
                         </a>
                     </span>
 
@@ -26,18 +35,21 @@
             @if (!string.IsNullOrEmpty(Model.MainImageUrl))
             {
                 <a href="@Model.Url" title="@Model.Title">
-                    <img width="1170" height="550" src="@Model.MainImageUrl" class="single-featured wp-post-image" alt="@Model.Title image" scale="0">
+                    <img itemprop="image" width="1170" height="550" src="@Model.MainImageUrl" class="single-featured wp-post-image" alt="@Model.Title image" scale="0">
                 </a>
             }
 
             <div class="entry-content">
-                <p>@Model.Summary</p>
+                <p itemprop="description">@Model.Summary</p>
 
                 <div class="read-more">
                     <a href="@Model.Url" title="@Model.Title">Read More</a>
                 </div>
 
-            </div><!-- .entry-content -->
+            </div>
         </div>
+
+        <meta itemprop="url" content="@Model.UrlWithDomain">
+        <meta itemprop="author" content="Travel Addiction">
     </div>
 </article>
