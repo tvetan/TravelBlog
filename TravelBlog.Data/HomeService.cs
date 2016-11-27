@@ -24,7 +24,8 @@ namespace TravelBlog.Data
                    Summary = x.GetPropertyValue<string>(PostDocumentTypeConsts.Summary),
                    MainImageUrl = Methods.GetImage(x.GetPropertyValue<int>(PostDocumentTypeConsts.MainImage)),
                    Category = x.GetPropertyValue<string>(PostDocumentTypeConsts.Category),
-                   ShowInSlider = x.GetPropertyValue<bool>(PostDocumentTypeConsts.ShowInSlider)
+                   ShowInSlider = x.GetPropertyValue<bool>(PostDocumentTypeConsts.ShowInSlider),
+                   UrlWithDomain = x.UrlWithDomain()
                })
                .OrderByDescending(x => x.CreateDate)
                .ToList();
