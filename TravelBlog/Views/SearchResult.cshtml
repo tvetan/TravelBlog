@@ -1,4 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.SearchResult>
+﻿@inherits UmbracoTemplatePage<ContentModels.SearchResult>
 @using ContentModels = Umbraco.Web.PublishedContentModels;
 @{
     Layout = "Master.cshtml";
@@ -6,10 +6,7 @@
     var searchText = TempData["SearchedText"];
 }
 
-
 <div class="container main-content-area">
-
-
     <div class="row">
         <div class="main-content-inner col-sm-12 col-md-8 side-right">
 

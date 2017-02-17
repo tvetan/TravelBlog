@@ -31,7 +31,7 @@ namespace TravelBlog.Data
 
         public static string GetContent(int contentId)
         {
-            var content = Methods.SiteUmbracoHelper().Content(contentId);
+            var content = SiteUmbracoHelper().Content(contentId);
             if (content != null)
             {
                 return content.Url;
@@ -39,17 +39,6 @@ namespace TravelBlog.Data
 
             return null;
         }
-
-        //public static IMediaType GetMedia(int mediaId)
-        //{
-        //    IMediaType media = new ContentTypeService().GetMediaType(mediaId);
-        //    if (media != null)
-        //    {
-        //        return media;
-        //    }
-
-        //    return null;
-        //}
 
         public static string TruncateHtml(this string html)
         {

@@ -12,10 +12,10 @@
 
 @helper ListChildNodes(IPublishedContent startNode)
 {
-<url>
-    <loc>@GetUrlWithDomainPrefix(startNode.Url)</loc>
-    <lastmod>@startNode.UpdateDate.ToString("yyyy-MM-ddTHH:mmzzz")</lastmod>
-</url>
+    <url>
+        <loc>@GetUrlWithDomainPrefix(startNode.Url)</loc>
+        <lastmod>@startNode.UpdateDate.ToString("yyyy-MM-ddTHH:mmzzz")</lastmod>
+    </url>
 
     foreach (var node in startNode.Children.Where("hideInXmlSitemap == false"))
     {
