@@ -354,6 +354,7 @@
     <Content Include="css\style.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="favicon.ico" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\flexslider.min.js" />
     <Content Include="js\functions.min.js" />
@@ -365,6 +366,7 @@
     </Content>
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <Content Include="robots.txt" />
