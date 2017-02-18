@@ -1,9 +1,10 @@
 ﻿@inherits UmbracoTemplatePage<ContentModels.SearchResult>
-@using ContentModels = Umbraco.Web.PublishedContentModels;
+@using ContentModels = Umbraco.Web.PublishedContentModels
+
 @{
     Layout = "Master.cshtml";
     var result = TempData["SearchResult"] as IEnumerable<BlogPostModel>;
-    var searchText = TempData["SearchedText"];
+    var searchText = TempData["SearchedText"] == null ? string.Empty : TempData["SearchedText"];
 }
 
 <div class="container main-content-area">
@@ -12,8 +13,6 @@
 
             <section id="primary" class="content-area">
                 <main id="main" class="site-main" role="main">
-
-
                     <header class="page-header">
                         <h1 class="page-title">Search Results for: <span>@searchText</span></h1>
                     </header><!-- .page-header -->
@@ -24,8 +23,6 @@
                             {
                                 Html.RenderPartial("_Post", post);
                             }
-
-                            
                         </div>
                     }
                     else
@@ -33,56 +30,16 @@
                         <section class="no-results not-found">
                             <header class="page-header page-header">
                                 <h1 class="page-title">Nothing Found</h1>
-                            </header><!-- .page-header -->
+                            </header>
 
                             <div class="page-content">
-
-                                <p>Sorry, but nothing matched your search terms. Please try again with some different keywords.</p>
-
-                                <form role="search" method="get" class="form-search" action="https://colorlib.com/activello/">
-                                    <div class="input-group">
-                                        <label class="screen-reader-text" for="s">Search for:</label>
-                                        <input type="text" class="form-control search-query" placeholder="Search…" value="@searchText" name="s" title="Search for:">
-                                        <span class="input-group-btn">
-                                            <button type="submit" class="btn btn-default" name="submit" id="searchsubmit" value="Search">Search</button>
-                                        </span>
-                                    </div>
-                                </form>
-                            </div><!-- .page-content -->
+                                @{ Html.RenderPartial("_SearchFormEmptySearchResult",
+                                                new SimpleSearchModel() { SearchedText = searchText.ToString() });}
+                            </div>
                         </section>
                     }
-                    @*<article id="post-1016" class="post-1016 post type-post status-publish format-standard has-post-thumbnail hentry category-template-2 tag-codex tag-edge-case tag-featured-image tag-image tag-template">
-                            <div class="blog-item-wrap">
-                                <div class="post-inner-content">
-                                    <header class="entry-header page-header">
-                                        <li class="cat-item cat-item-49">
-                                            <a href="https://colorlib.com/activello/category/template-2/" title="Posts with template-related tests">Template</a>
-                                        </li>
-                                        <h2 class="entry-title"><a href="https://colorlib.com/activello/template-featured-image-vertical/" rel="bookmark">Template: Featured Image (No Sidebar Layout)</a></h2>
-
-                                        <div class="entry-meta">
-                                            <span class="posted-on">Posted on <a href="https://colorlib.com/activello/template-featured-image-vertical/" rel="bookmark"><time class="entry-date published" datetime="2015-11-11T15:36:32+00:00">November 11, 2015</time><time class="updated" datetime="2015-11-14T18:03:58+00:00">November 14, 2015</time></a></span>
-
-                                        </div><!-- .entry-meta -->
-                                    </header><!-- .entry-header -->
-
-                                    <a href="https://colorlib.com/activello/template-featured-image-vertical/" title="Template: Featured Image (No Sidebar Layout)">
-                                        <img width="1170" height="550" src="https://cdn.colorlib.com/activello/wp-content/uploads/sites/10/2012/03/photo-1437915015400-137312b61975-1170x550.jpg" class="single-featured wp-post-image" alt="photo-1437915015400-137312b61975" scale="0">
-                                    </a>
-
-                                    <div class="entry-summary">
-                                        <p>This post should display a&nbsp;featured image, if the theme&nbsp;supports it. Non-square images can provide some unique styling issues. This post tests a vertical featured image.</p>
-                                        <p><a class="btn btn-default read-more" href="https://colorlib.com/activello/template-featured-image-vertical/">Read More</a></p>
-                                    </div><!-- .entry-summary -->
-                                </div>
-                            </div>
-                        </article><!-- #post-## -->*@
-
-
-
                 </main><!-- #main -->
             </section><!-- #primary -->
-
         </div>
 
         @{ Html.RenderPartial("_Sidebar"); }

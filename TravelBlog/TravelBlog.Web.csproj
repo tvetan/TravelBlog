@@ -3016,6 +3016,7 @@
     <Content Include="Views\Sitemap.cshtml" />
     <Content Include="Views\Partials\_PostsListWithPaging.cshtml" />
     <Content Include="Views\Partials\_NewsletterForm.cshtml" />
+    <Content Include="Views\Partials\_SearchFormEmptySearchResult.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
