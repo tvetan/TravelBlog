@@ -1,11 +1,11 @@
 ﻿using System.Web.Mvc;
+using TravelBlog.Controllers.Base;
 using TravelBlog.Data;
 using Umbraco.Web.Models;
-using Umbraco.Web.Mvc;
 
 namespace TravelBlog.Controllers
 {
-    public class HomeController : RenderMvcController
+    public class HomeController : BaseHttpsRenderMvcController
     {
         private readonly HomeService homeService;
 

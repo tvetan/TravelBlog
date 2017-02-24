@@ -3060,6 +3060,7 @@
   <ItemGroup>
     <Compile Include="Bundle\BundleConfig.cs" />
     <Compile Include="Bundle\BundleEventHandlers.cs" />
+    <Compile Include="Controllers\Base\BaseHttpsRenderMvcController.cs" />
     <Compile Include="Controllers\BlogPostController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\ContactFormController.cs" />
@@ -3075,9 +3076,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
-    <Folder Include="Views\Category\" />
-    <Folder Include="Views\ContactForm\" />
-    <Folder Include="Views\MacroPartials\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TravelBlog.Data\TravelBlog.Data.csproj">

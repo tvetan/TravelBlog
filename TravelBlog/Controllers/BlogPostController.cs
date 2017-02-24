@@ -1,10 +1,10 @@
 ﻿using System.Web.Mvc;
+using TravelBlog.Controllers.Base;
 using TravelBlog.Data;
-using Umbraco.Web.Mvc;
 
 namespace TravelBlog.Controllers
 {
-    public class BlogPostController : RenderMvcController
+    public class BlogPostController : BaseHttpsRenderMvcController
     {
         public BlogPostsService BlogPostsService { get; set; }
 
